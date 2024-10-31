@@ -1,20 +1,23 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="stylesheet" href="{% static "global/css/style_header.css" %}">
+    <title>Página Inicial</title>
 </head>
 <body>
     <header>
         <div class="img_fundo_header">
-            <img src="#" alt="Imagem de Fundo Header">
+            <img src={% static "global/img/Bioma Amazônico.png" %} alt="Imagem Da Amazônia">
         </div>
-        <div>
+        <div class="menu">
             <nav>
-                <ul>
+                <ul class="menu-1">
                     <li>
-                        <ul>
+                        <ul class="lista-1">
                             <li>
                                 <a href="#">Histórico de Rotas</a>
                             </li>
@@ -30,13 +33,13 @@
                         </ul>
                     </li>
                     <li>
-                        <img src="#" alt="Logo">
+                        <a href="#">EcoTur</a>
                     </li>
                     <li>
-                        <img src="#" alt="Imagem do Ícone de Usuário">
+                        <a href="#"><img src="{% static "global/img/icone_user.png" %}" alt="Imagem do Ícone de Usuário"></a>
                     </li>
                 </ul>
-                <ul>
+                <ul class="menu-2">
                     <li>
                         <a href="#">Rotas</a>
                     </li>

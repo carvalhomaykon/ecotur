@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.img_fundo_header {
+    width: 100vw;     
+    height: 200px;       /* Ocupa toda a largura da viewport */
+    overflow: hidden;       /* Esconde partes da imagem que excedam a altura, caso necessário */    
+}
+
+.img_fundo_header img {
+    width: 100%;            /* Define a largura da imagem para 100% da área do contêiner */
+    height: 100%;           /* Mantém a proporção da imagem */
+    object-fit: cover;      /* Ajusta a imagem para cobrir o contêiner sem distorcer */
+    object-position: center; /* Centraliza a imagem */
+}
+.menu{
+    background-color: #09681B;
+}
+
+.menu a{
+    color: white;
+}
+
+.menu a:hover{
+    color: brown;
+}
+
+.menu-1{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu-1 li, a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.menu-1 img{
+    width: 24px;
+    height: 24px;
+}
+
+.lista-1{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-2{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+}
+
+footer img{
+    width: 40px;
+    height: 40px;
+}
+
+footer{
+    background-color: #09681B;
+}
+
+footer p{
+    color: white;
+    text-align: center;
+}
