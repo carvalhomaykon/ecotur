@@ -1,0 +1,84 @@
+{% load static %}
+
+{% include "global/partials/_header.html" %}
+
+    <section>
+        <h1>Mapa de Rota Turística</h1>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6707.950599715394!2d-48.45608480767942!3d-1.432553564497535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c7576d25be9%3A0xf3f3ffab0fe0e391!2sBosque%20Rodrigues%20Alves%20-%20Jardim%20Zoobot%C3%A2nico%20da%20Amaz%C3%B4nia!5e0!3m2!1spt-BR!2sbr!4v1730831021653!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="filtros">
+            <div class="cidade-filtro">
+                <label for="cidade">Cidade</label>
+                <select name="cidade" id="cidade">
+                    <option value="belem" selected>Belém</option>
+                    <option value="ananindeua">Ananindeua</option>
+                    <option value="marituba">Marituba</option>
+                </select>
+            </div>
+
+            <div class="filtros">
+                <!-- Título expansível da lista de filtros -->
+                <details>
+                    <summary>Filtros</summary>
+            
+                    <!-- Filtro de Tempo -->
+                    <div class="filtro-item">
+                        <label for="tempo">Tempo</label>
+                        <select name="tempo" id="tempo">
+                            <option value="todos">Todos</option>
+                            <option value="tempo-curto">Curto</option>
+                            <option value="tempo-médio">Médio</option>
+                            <option value="tempo-longo">Longo</option>
+                        </select>
+                    </div>
+            
+                    <!-- Filtro de Distância -->
+                    <div class="filtro-item">
+                        <label for="distancia">Distância</label>
+                        <select name="distancia" id="distancia">
+                            <option value="todos">Todos</option>
+                            <option value="curta">Curta</option>
+                            <option value="media">Média</option>
+                            <option value="longa">Longa</option>
+                        </select>
+                    </div>
+            
+                    <!-- Filtro de Popularidade -->
+                    <div class="filtro-item">
+                        <label for="popularidade">Popularidade</label>
+                        <select name="popularidade" id="popularidade">
+                            <option value="todos">Todos</option>
+                            <option value="popular-alta">Alta</option>
+                            <option value="popular-moderada">Moderada</option>
+                            <option value="popular-baixa">Baixa</option>
+                        </select>
+                    </div>
+            
+                    <!-- Filtro de Dificuldade -->
+                    <div class="filtro-item">
+                        <label for="dificuldade">Dificuldade</label>
+                        <select name="dificuldade" id="dificuldade">
+                            <option value="todos">Todos</option>
+                            <option value="facil">Fácil</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="dificil">Difícil</option>
+                        </select>
+                    </div>
+                </details>
+            </div>
+            
+            <div class="button-filtrar">
+                <button>Filtrar</button>
+            </div>
+        </div>
+        
+        <h2>Sugestões:</h2>
+
+        <div class="button-rota">
+            <button><a href="#"><b>Gerar Rota</b></a></button>
+        </div>
+    </section>
+
+{% include "global/partials/_footer.html" %}

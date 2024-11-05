@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'home',
     'pontos_turisticos',
     'rotas',
+    'guia_turistico',
+    'recompensas',
+    'avaliacao',
+    'usuario',
 ]
 
 MIDDLEWARE = [

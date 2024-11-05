@@ -1,0 +1,86 @@
+h1{
+    margin-top: 20px;
+    text-align: center;
+    color: #2e7d32;
+    text-decoration: underline;
+}
+
+section{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo principal da área de busca */
+.buscar {
+    margin-top: 30px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Limita a largura da barra de busca */
+    background-color: #f1f1f1; /* Cor de fundo da barra de busca */
+    border-radius: 25px; /* Arredonda as bordas da barra */
+    padding: 5px 10px; /* Espaçamento interno para o ícone e o input */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar o campo */
+}
+
+/* Estilo do container do ícone */
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin-right: 8px; /* Espaço entre o ícone e o campo de entrada */
+}
+
+/* Estilo do ícone */
+.icon-container img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilo do input de busca */
+.search-input {
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove o contorno ao focar */
+    width: 200%; /* Preenche o restante do container */
+    background-color: transparent; /* Transparece o fundo do input */
+    font-size: 16px;
+    color: #333; /* Cor do texto */
+}
+
+/* Placeholder estilizado */
+.search-input::placeholder {
+    color: #888; /* Cor do placeholder */
+    font-style: italic;
+}
+
+/* Estilo para focar no campo de busca */
+.search-input:focus {
+    color: #222; /* Cor do texto ao focar */
+}
+
+.amostra-pontos-turisticos{
+    margin-top: 30px;
+    padding: 10px;
+}
+.amostra-pontos-turisticos li, a{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.amostra-pontos-turisticos h2{
+    text-align: left;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}

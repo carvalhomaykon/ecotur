@@ -1,6 +1,6 @@
-from home import views
+from guia_turistico import views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.guia_turistico, name='guia_turistico'),
 ]

@@ -5,55 +5,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ nome_da_pagina }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "global/css/style_carrossel.css" %}">
     <link rel="stylesheet" href="{% static "global/css/style_header.css" %}">
-    <title>Página Inicial</title>
+    <link rel="stylesheet" href="{% static '' %}{{ nome_do_escopo }}/css/style_{{ nome_do_app }}.css">
+    <link rel="shortcut icon" href="{% static "global/img/logo-ecotur.ico" %}" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="img_fundo_header">
-            <img src={% static "global/img/Bioma Amazônico.png" %} alt="Imagem Da Amazônia">
+            <img src={% static "global/img/belem-inicio-c.png" %} alt="Imagem Da Amazônia">
         </div>
         <div class="menu">
             <nav>
                 <ul class="menu-1">
                     <li>
-                        <ul class="lista-1">
-                            <li>
-                                <a href="#">Histórico de Rotas</a>
-                            </li>
-                            <li>
-                                <a href="#">Histórico de Pacotes</a>
-                            </li>
-                            <li>
-                                <a href="#">Minha Conta</a>
-                            </li>
-                            <li>
-                                <a href="#">Sair</a>
-                            </li>
-                        </ul>
+                        <div class="title">
+                            Eco<span class="tour">Tour</span>
+                        </div>
                     </li>
-                    <li>
-                        <a href="#">EcoTur</a>
-                    </li>
+                    <ul class="menu-2">
+                        <li>
+                            <a href="{% url "home" %}">Home</a>
+                        </li>
+                        <li>
+                            <a href="{% url "rotas" %}">Rotas</a>
+                        </li>
+                        <li>
+                            <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
+                        </li>
+                        <li>
+                            <a href="{% url "recompensas" %}">Recompensas</a>
+                        </li>
+                        <li>
+                            <a href="{% url "avaliacao" %}">Sugestões</a>
+                        </li>
+                        <li>
+                            <a href="{% url "guia_turistico" %}">Guia Turistico</a>
+                        </li>
+                    </ul>
                     <li>
                         <a href="#"><img src="{% static "global/img/icone_user.png" %}" alt="Imagem do Ícone de Usuário"></a>
-                    </li>
-                </ul>
-                <ul class="menu-2">
-                    <li>
-                        <a href="#">Rotas</a>
-                    </li>
-                    <li>
-                        <a href="#">Pontos Turisticos</a>
-                    </li>
-                    <li>
-                        <a href="#">Recompensas</a>
-                    </li>
-                    <li>
-                        <a href="#">Sugestões</a>
-                    </li>
-                    <li>
-                        <a href="#">Guia Turistico</a>
                     </li>
                 </ul>
             </nav>

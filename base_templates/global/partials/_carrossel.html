@@ -1,0 +1,50 @@
+<div class="carousel-container">
+    <!-- Imagens do carrossel -->
+    <div class="carousel-slide">
+        <img src="https://via.placeholder.com/600x400?text=Imagem+1" alt="Imagem 1">
+        <img src="https://via.placeholder.com/600x400?text=Imagem+2" alt="Imagem 2">
+        <img src="https://via.placeholder.com/600x400?text=Imagem+3" alt="Imagem 3">
+        <img src="https://via.placeholder.com/600x400?text=Imagem+4" alt="Imagem 4">
+    </div>
+    <!-- Botões de navegação -->
+    <button class="carousel-button left" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-button right" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<!-- Indicadores de página -->
+<div class="carousel-indicators">
+    <span class="indicator active" onclick="currentSlide(1)"></span>
+    <span class="indicator" onclick="currentSlide(2)"></span>
+    <span class="indicator" onclick="currentSlide(3)"></span>
+    <span class="indicator" onclick="currentSlide(4)"></span>
+</div>
+
+<script>
+    let slideIndex = 1;
+    const slides = document.querySelectorAll('.carousel-slide img');
+    const indicators = document.querySelectorAll('.indicator');
+
+    // Função para mostrar o slide atual
+    function showSlide(n) {
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+        const offset = (slideIndex - 1) * 100;
+        document.querySelector('.carousel-slide').style.transform = `translateX(-${offset}%)`;
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === slideIndex - 1);
+        });
+    }
+
+    // Função para mover o slide
+    function moveSlide(n) {
+        showSlide(slideIndex += n);
+    }
+
+    // Função para definir o slide atual
+    function currentSlide(n) {
+        showSlide(slideIndex = n);
+    }
+
+    // Exibe o primeiro slide
+    showSlide(slideIndex);
+</script>

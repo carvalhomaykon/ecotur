@@ -3,9 +3,21 @@
 {% include "global/partials/_header.html" %}
 
     <section>
-        <div>
-            <img src="#" alt="Imagem de Belém-Pa">
-            /* {% static "global/img/Cidade-de-Belem.png" %} */
+        <div class="belem-home">
+            <img src="{% static "global/img/Cidade-de-Belem2.png" %}" alt="Imagem de Belém-Pa">
+        </div>
+        <div class="conteudo-home">
+            <h1>Home</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum fuga quidem explicabo commodi repudiandae quaerat dolorem, recusandae aspernatur hic tenetur ab, vero quos dolor sequi aperiam dicta vel adipisci repellat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error fuga neque repudiandae sapiente officiis eos dolor eum enim, nam eaque expedita laudantium ratione unde. Fugit provident esse necessitatibus quis assumenda?</p>
+        </div>
+        
+        {% include "global/partials/_carrossel.html" %}
+
+        <div class="saber-pt">
+            <p>Para saber mais sobre esses pontos turisticos click <a href="#">aqui</a></p>
+        </div>
+        <div class="melhor-rota">
+            <p>Saiba qual a melhor rota sustentável para você conhecer pontos turisticos, basta clicar <a href="">aqui</a></p>
         </div>
     </section>
 

@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, Arial;
+}
+
+.img_fundo_header {
+    width: 100vw;     
+    height: 200px;       /* Ocupa toda a largura da viewport */
+    overflow: hidden;       /* Esconde partes da imagem que excedam a altura, caso necessário */    
+}
+
+.img_fundo_header img {
+    width: 100%;            /* Define a largura da imagem para 100% da área do contêiner */
+    height: 100%;           /* Mantém a proporção da imagem */
+    object-fit: cover;      /* Ajusta a imagem para cobrir o contêiner sem distorcer */
+    object-position: center; /* Centraliza a imagem */
+}
+
+.menu{
+    background-color: #E0F7E9;
+}
+
+.menu a{
+    color: #4caf50;
+}
+
+.menu a:hover{
+    color: #1d3e1f;
+}
+
+.menu-1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-1 li, a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.menu-1 img{
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    align-items: center;
+}
+
+.lista-1{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.menu-2{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+footer img{
+    width: 40px;
+    height: 40px;
+}
+
+footer{
+    background-color: #E0F7E9;
+}
+
+footer p{
+    color: #4caf50;
+    text-align: center;
+}
+
+footer a{
+    text-align: center;
+}
+
+/* Título */
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4caf50; /* Cor verde para "Eco" */
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.title .tour {
+    color: white; /* Cor branca para "Tour" */
+    background-color: #4caf50;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+/* Style da home. Ajustar css somente da home posteriormente  */
+
+section{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+} 

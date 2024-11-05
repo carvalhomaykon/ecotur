@@ -1,0 +1,66 @@
+{% load static %}
+
+{% include "global/partials/_header.html" %}
+
+    <section>
+        <h1>Pontos Turisticos</h1>
+        <div class="container">
+            <div class="buscar">
+                <div class="icon-container">
+                    <img src="{% static 'pontos_turisticos/img/lupa.png' %}" alt="Ícone da Lupa">
+                </div>
+                <form action="#" method="GET">
+                    <input type="text" class="search-input" placeholder="Pesquise seu ponto turístico" id="search" name="q">
+                </form>
+            </div>
+        </div>
+        <div class="amostra-pontos-turisticos">
+            <h2>Pontos Mais visitados</h2>
+            <div>
+                <ul>
+                    <!-- Adicionar a seguinte lógica: 
+                        Enquanto há imagens, mostre as imagens 
+                    -->
+
+                    <!--
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    -->
+
+                    {% include "global/partials/_carrossel.html" %}
+                </ul>
+            </div>
+        </div>
+        <div class="amostra-pontos-turisticos">
+            <h2>Pontos Turistico Cultural</h2>
+            <div>
+                <ul>
+                    <!--
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    -->
+                    {% include "global/partials/_carrossel.html" %}
+                </ul>
+            </div>
+        </div>
+        <div class="amostra-pontos-turisticos">
+            <h2>Pontos Turistico Natural</h2>
+            <div>
+                <ul>
+                    <!--
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
+                    -->
+                    {% include "global/partials/_carrossel.html" %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+{% include "global/partials/_footer.html" %}

@@ -1,0 +1,61 @@
+.map{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.filtros{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.cidade-filtro{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.filtros{
+    text-align: left;
+    align-items: center;
+}
+
+.button-filtrar button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-filtrar button:hover {
+    background-color: #388e3c;
+}
+.button-rota{
+    text-align: center;
+}
+
+.button-rota button{
+    margin-top: 30px;
+    width: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+.button-rota button:hover {
+    background-color: #388e3c;
+}
+
+.button-rota a{
+    text-decoration: none;
+    color: white;
+}

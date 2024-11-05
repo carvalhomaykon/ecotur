@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - EcoTour</title>
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e0f7e9;
+        }
+
+        /* Título */
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4caf50; /* Cor verde para "Eco" */
+            margin-bottom: 20px;
+        }
+
+        .title .tour {
+            color: white; /* Cor branca para "Tour" */
+            background-color: #4caf50;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+
+        /* Caixa de Cadastro */
+        .signup-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo dos Inputs */
+        .signup-container input[type="text"],
+        .signup-container input[type="email"],
+        .signup-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            background-color: #f1f8e9;
+            font-size: 16px;
+        }
+
+        /* Botão de Cadastro */
+        .signup-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-container button:hover {
+            background-color: #388e3c;
+        }
+
+        /* Link para Voltar */
+        .signup-container a {
+            display: block;
+            margin-top: 15px;
+            color: #2e7d32;
+            text-decoration: none;
+        }
+
+        .signup-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        Eco<span class="tour">Tour</span>
+    </div>
+    <div class="signup-container">
+        <h2>Criar Conta</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Nome completo" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Nome de usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <input type="password" name="confirm_password" placeholder="Confirme a senha" required>
+            <button type="submit">Cadastrar</button>
+            <a href="login_ecotour.html">Já tem uma conta? Faça login</a>
+        </form>
+    </div>
+</body>
+</html>
