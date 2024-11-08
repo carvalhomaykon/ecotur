@@ -5,7 +5,7 @@
 }
 
 .img_fundo_header {
-    width: 100vw;     
+    width: 100%;     
     height: 200px;       /* Ocupa toda a largura da viewport */
     overflow: hidden;       /* Esconde partes da imagem que excedam a altura, caso necessário */    
 }
@@ -80,6 +80,7 @@ footer a{
 
 /* Título */
 .title {
+    margin-left: 30px;
     font-size: 30px;
     font-weight: bold;
     color: #4caf50; /* Cor verde para "Eco" */
@@ -93,6 +94,10 @@ footer a{
     background-color: #4caf50;
     padding: 0 5px;
     border-radius: 3px;
+}
+
+.title a:hover{
+    color: #4caf50;
 }
 
 /* Style da home. Ajustar css somente da home posteriormente  */
@@ -112,4 +117,163 @@ h1{
     text-align: center;
     color: #2e7d32;
     text-decoration: underline;
+}
+
+/* Estilo para o botão de login */
+.entrar{
+    margin-right: 30px;
+    background-color: #4caf50;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.entrar a{
+    text-decoration: none;
+    color: white;
+}
+
+.entrar a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.entrar:hover{
+    background-color: #2e7d32;
+    color: white;
+}
+
+
+/* Estilos básicos do menu rotas */
+.menu-rotas {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do botão */
+.menu-rotas button {
+    color: #4caf50;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #E0F7E9;
+}
+
+.menu-rotas button:hover {
+    color: #1d3e1f;
+}
+
+/* Estilos do dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 5px;
+}
+.dropdown-content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.dropdown-content ul li a {
+    color: #4caf50;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Mostrar o dropdown ao clicar */
+.menu-rotas.active .dropdown-content {
+    display: block;
+}
+
+/* Estilo do ícone SVG */
+.menu-rotas button svg {
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+.menu-rotas.active button svg {
+    transform: rotate(180deg); /* Rotaciona o ícone ao abrir o menu */
+}
+
+.mobile-menu-icon{
+    display: none;
+}
+
+.mobile-menu{
+    display: none;
+}
+
+@media screen and (max-width: 1024px){
+    .menu-2{
+        display: none;
+    }
+
+    .entrar{
+        display: none;
+    }
+
+    footer p{
+        font-size: 10px;
+    }
+
+    .title{
+        font-size: 20px;
+    }
+
+    .mobile-menu-icon{
+        display: block;
+        margin-right: 30px;
+        margin-top: 10px;
+    }
+
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .mobile-menu ul{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .mobile-menu .nav-item{
+        display: block;
+        padding: 1rem 2rem;
+    }
+
+    .mobile-menu .login-button{
+        display: block;
+        padding: 1rem 2rem;
+    }
+    
+    .mobile-menu .login-button bottom{
+        width: 100%;
+    }
+    
+    .open{
+        display: block;
+    }
+
+    .mobile-menu {
+        display: none; /* O menu fica escondido por padrão */
+    }
+    
+    .mobile-menu.open {
+        display: block; /* O menu aparece quando tem a classe 'open' */
+    }
+    
 }

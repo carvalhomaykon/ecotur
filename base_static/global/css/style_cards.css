@@ -1,0 +1,71 @@
+.card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.img-ponto-turistico {
+    flex: 0 0 40%; /* Define 40% para a imagem */
+    margin-right: 20px;
+}
+
+.img-ponto-turistico img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.dados {
+    flex: 1; /* O restante ocupa 60% */
+}
+
+.dados h3 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+.dados ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+    color: #555;
+}
+
+.dados ul li {
+    margin-bottom: 5px;
+}
+
+.adicionar-rota {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.adicionar-rota:hover {
+    background-color: #388e3c;
+}
+
+.button{
+    text-align: center;
+}
+
+.card-geral{
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row; /* Fica lado a lado apenas em telas maiores */
+    }
+}

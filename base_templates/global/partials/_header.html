@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static "global/css/style_carrossel.css" %}">
     <link rel="stylesheet" href="{% static "global/css/style_header.css" %}">
     <link rel="stylesheet" href="{% static '' %}{{ nome_do_escopo }}/css/style_{{ nome_do_app }}.css">
+    <link rel="stylesheet" href="{% static "global/css/style_cards.css" %}">
     <link rel="shortcut icon" href="{% static "global/img/logo-ecotur.ico" %}" type="image/x-icon">
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <ul class="menu-1">
                     <li>
                         <div class="title">
-                            Eco<span class="tour">Tour</span>
+                            <a href="{% url "home" %}">Eco<span class="tour">Tour</span></a>
                         </div>
                     </li>
                     <ul class="menu-2">
@@ -30,7 +31,21 @@
                             <a href="{% url "home" %}">Home</a>
                         </li>
                         <li>
-                            <a href="{% url "rotas" %}">Rotas</a>
+                            <div class="menu-rotas">
+                                <button onclick="toggleDropdown()">Rotas 
+                                    <!-- Ícone de seta (SVG) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        <li><a href="{% url "rotas" %}">Criar Rota</a></li>
+                                        <li><a href="{% url "minha_rota" %}">Minha Rota</a></li>
+                                        <li><a href="{% url "historico_rota" %}">Histórico de Rota</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
                         <li>
                             <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
@@ -46,9 +61,60 @@
                         </li>
                     </ul>
                     <li>
-                        <a href="#"><img src="{% static "global/img/icone_user.png" %}" alt="Imagem do Ícone de Usuário"></a>
+                        <div class="entrar">
+                            <a href="{% url "usuario" %}">Entrar</a>
+                        </div>
+                        <!-- <a href="#"><img src="{% static "global/img/icone_user.png" %}" alt="Imagem do Ícone de Usuário"></a> -->
+                    </li>
+                    <li class="mobile-menu-icon">
+                        <button onclick="menuShow()">
+                            <img src="{% static "global/img/menu_white_36dp.svg" %}" alt="Logo do Ícone de Menu" class="icon">
+                        </button>
                     </li>
                 </ul>
             </nav>
+
+            <div class="mobile-menu">
+                <ul class="menu-2">
+                    <li>
+                        <a href="{% url "home" %}">Home</a>
+                    </li>
+                    <li>
+                        <div class="menu-rotas">
+                            <button onclick="toggleDropdown()">Rotas 
+                                <!-- Ícone de seta (SVG) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-content">
+                                <ul>
+                                    <li><a href="{% url "rotas" %}">Criar Rota</a></li>
+                                    <li><a href="#">Minha Rota</a></li>
+                                    <li><a href="#">Histórico de Rota</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
+                    </li>
+                    <li>
+                        <a href="{% url "recompensas" %}">Recompensas</a>
+                    </li>
+                    <li>
+                        <a href="{% url "avaliacao" %}">Sugestões</a>
+                    </li>
+                    <li>
+                        <a href="{% url "guia_turistico" %}">Guia Turistico</a>
+                    </li>
+                </ul>
+
+                <div class="entrar">
+                    <button><a href="{% url "usuario" %}">Entrar</a></button>
+                </div>
+            </div>
         </div>
     </header>
+    <!-- Link para o arquivo JavaScript -->
+    <script src="{% static 'global/js/script_nav.js' %}"></script>

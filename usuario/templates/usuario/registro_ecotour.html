@@ -1,8 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'global/img/logo-ecotur.ico' %}" type="image/x-icon">
     <title>Criar Conta - EcoTour</title>
     <style>
         /* Estilos Globais */
@@ -10,7 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Poppins, Arial, sans-serif;
         }
 
         body {
@@ -35,6 +39,11 @@
             background-color: #4caf50;
             padding: 0 5px;
             border-radius: 3px;
+        }
+
+        .title a{
+            text-decoration: none;
+            color: #4caf50;
         }
 
         /* Caixa de Cadastro */
@@ -93,11 +102,63 @@
         .signup-container a:hover {
             text-decoration: underline;
         }
+
+        /* Estilos básicos para a janela modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 10%;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .termo {
+        background-color: #f1f8e9; /* Verde claro, condizente com o tema Eco */
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: justify;
+        color: #2e7d32; /* Verde escuro, para bom contraste */
+        font-size: 14px;
+        color: black;
+        }
+        .termo a {
+            color: #388e3c; /* Verde intermediário para links */
+            text-decoration: none;
+        }
+        .termo a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
     <div class="title">
-        Eco<span class="tour">Tour</span>
+        <a href="{% url "home" %}">Eco<span class="tour">Tour</span></a>
     </div>
     <div class="signup-container">
         <h2>Criar Conta</h2>
@@ -108,8 +169,36 @@
             <input type="password" name="password" placeholder="Senha" required>
             <input type="password" name="confirm_password" placeholder="Confirme a senha" required>
             <button type="submit">Cadastrar</button>
-            <a href="login_ecotour.html">Já tem uma conta? Faça login</a>
+            <a href="{% url 'usuario' %}">Já tem uma conta? Faça login</a>
         </form>
+        <div class="termo">
+            <p>Ao clicar em 'Cadastrar', você concorda com os nossos <a href="#" id="termosLink">Termos de Uso e Política de Privacidade</a> do EcoTur e autoriza o compartilhamento de seus dados.</p>
+        </div>
+
+        <!-- Estrutura da janela modal -->
+        <div id="modalTermos" class="modal">
+            <div class="modal-content">
+                <span class="close" id="fecharModal">&times;</span>
+                <h2>Termos de Uso e Política de Privacidade</h2>
+                <p>Aqui você pode colocar o conteúdo dos Termos de Uso e da Política de Privacidade...</p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // JavaScript para abrir e fechar a janela modal
+        document.getElementById('termosLink').onclick = function(event) {
+            event.preventDefault(); // Evita que o link navegue para outra página
+            document.getElementById('modalTermos').style.display = "block";
+        };
+        document.getElementById('fecharModal').onclick = function() {
+            document.getElementById('modalTermos').style.display = "none";
+        };
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modalTermos')) {
+                document.getElementById('modalTermos').style.display = "none";
+            }
+        };
+    </script>
 </body>
-</html>
+</html>  

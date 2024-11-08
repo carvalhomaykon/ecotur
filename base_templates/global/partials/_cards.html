@@ -1,123 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Card Responsivo de Ponto Turístico</title>
-<style>
-    /* Estilos gerais do card */
-    .card {
-        display: flex;
-        flex-direction: row;
-        width: 400px;
-        background-color: #f2f2f2;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 20px auto;
-        transition: width 0.3s ease;
-    }
-
-    /* Estilo para a área da imagem */
-    .card .imagem {
-        background-color: #4a7a4c; /* Cor de fundo representando a imagem */
-        color: white;
-        width: 40%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2em;
-        font-weight: bold;
-        padding: 10px;
-        text-align: center;
-    }
-
-    /* Estilo para o conteúdo do card */
-    .card .conteudo {
-        padding: 20px;
-        background-color: #36b24a;
-        width: 60%;
-        color: white;
-        font-family: Arial, sans-serif;
-    }
-
-    /* Estilo do título */
-    .card .conteudo h3 {
-        margin: 0;
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    /* Estilo dos detalhes */
-    .card .conteudo p {
-        margin: 8px 0;
-        font-size: 0.9em;
-    }
-
-    /* Estilo do botão */
-    .card .conteudo .botao {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 8px 12px;
-        background-color: #3f6c50;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 0.9em;
-        text-align: center;
-    }
-
-    .card .conteudo .botao:hover {
-        background-color: #2f5540;
-    }
-
-    /* Responsividade para telas menores */
-    @media (max-width: 600px) {
-        .card {
-            flex-direction: column;
-            width: 90%; /* Ajusta o tamanho para caber melhor na tela */
-        }
-
-        .card .imagem, .card .conteudo {
-            width: 100%; /* Faz com que ambos ocupem 100% da largura */
-            text-align: center; /* Centraliza o texto no conteúdo */
-        }
-
-        .card .conteudo {
-            padding: 15px; /* Reduz o espaçamento em telas menores */
-        }
-
-        .card .conteudo h3 {
-            font-size: 1.1em; /* Ajusta o tamanho da fonte do título */
-        }
-
-        .card .conteudo p {
-            font-size: 0.85em; /* Ajusta o tamanho da fonte do texto */
-        }
-
-        .card .conteudo .botao {
-            padding: 10px; /* Ajusta o tamanho do botão */
-            font-size: 0.9em;
-        }
-    }
-</style>
-</head>
-<body>
-
-<div class="card">
-    <div class="imagem">
-        Imagem do <br> Ponto Turístico
-    </div>
-    <div class="conteudo">
-        <h3>Nome do Ponto Turístico</h3>
-        <p>Descrição:</p>
-        <p>Dificuldade de Acesso:</p>
-        <p>Tempo de Visita:</p>
-        <p>Distância:</p>
-        <p>Popularidade:</p>
-        <a href="#" class="botao">Adicionar à Rota</a>
+<div class="card-geral">
+    <div class="card">
+        <div class="img-ponto-turistico">
+            <img src="../../../base_static/global/img/Bioma Amazônico.png" alt="Imagem Teste">
+        </div>
+        <div class="dados">
+            <h3>Nome do Ponto Turistico</h3>
+            <ul>
+                <li>Descrição: </li>
+                <li>Dificuldade de Acesso: </li>
+                <li>Tempo de Visita: </li>
+                <li>Distância: </li>
+                <li>Popularidade: </li>
+                <li>Tipo de Ponto Turistico: </li>
+            </ul>
+            <div class="button">
+                <button class="adicionar-rota">
+                    Adicionar à Rota
+                </button>
+            </div>
+        </div>
     </div>
 </div>
-
-</body>
-</html>

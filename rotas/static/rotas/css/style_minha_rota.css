@@ -1,0 +1,100 @@
+.map{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.visitas{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ico-loc img{
+    height: 50px;
+}
+
+.ico-loc{
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.visitas{
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 2px solid #4caf50; /* Linha acima */
+    border-bottom: 2px solid #4caf50; /* Linha abaixo */
+    border-radius: 8px; /* Bordas arredondadas para o conteúdo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes a{
+    text-decoration: none;
+    color: #4caf50;
+}
+
+.detalhes a:hover{
+    color: #1d3e1f;
+}
+
+.buttons-detalhes{
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+}
+
+button{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
+.concluir{
+    background-color: #4caf50;
+}
+
+.concluir:hover{
+    background-color: #388e3c;
+}
+
+.cancelar{
+    background-color: tomato;
+}
+
+.cancelar:hover{
+    background-color: rgb(219, 60, 60);
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttons button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+@media screen and (max-width: 1024px){
+    .ico-loc{
+        margin-top: 12px;
+    }
+
+    .buttons button{
+        width: 100%;
+    }
+}
