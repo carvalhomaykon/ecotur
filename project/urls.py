@@ -9,4 +9,5 @@ urlpatterns = [
     path('pontos-turisticos/', include('pontos_turisticos.urls')),
     path('avaliacao/', include('avaliacao.urls')),
     path('usuario/', include('usuario.urls')),
+    path('admin/', admin.site.urls),
 ]

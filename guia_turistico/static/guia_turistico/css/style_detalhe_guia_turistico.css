@@ -1,0 +1,89 @@
+.propaganda img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 230px;
+    border-radius: 5px;
+}
+
+.detalhes ul{
+    text-decoration: none;
+    list-style: none;
+    display: block;
+    margin-left: 30px;
+}
+
+h2{
+    text-align: left;
+    color: #2e7d32;
+    text-decoration: underline;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.sobre-guia{
+    margin-left: 30px;
+}
+
+.user{
+    display: flex;
+    gap: 30px;
+}
+
+.roteiro ul, a{
+    text-decoration: none;
+    color: black;
+}
+
+.roteiro li{
+    margin-left: 40px;
+}
+
+.contatos{
+    margin-left: 30px;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+
+.link-contato{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.button-contato{
+    text-align: center;
+}
+
+.button-contato button{
+    margin-top: 30px;
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+.button-contato button:hover {
+    background-color: #388e3c;
+}
+
+.button-contato a{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 1030px) {
+    .button-contato button{
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024) {    
+    .button-contato button{
+        width: 80%;
+    }
+}

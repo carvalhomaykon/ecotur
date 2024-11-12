@@ -2,65 +2,77 @@
 
 {% include "global/partials/_header.html" %}
 
-    <section>
-        <h1>Pontos Turisticos</h1>
-        <div class="container">
-            <div class="buscar">
-                <div class="icon-container">
-                    <img src="{% static 'pontos_turisticos/img/lupa.png' %}" alt="Ícone da Lupa">
-                </div>
-                <form action="#" method="GET">
-                    <input type="text" class="search-input" placeholder="Pesquise seu ponto turístico" id="search" name="q">
-                </form>
+<section>
+    <h1>Pontos Turísticos</h1>
+    <div class="container">
+        <div class="buscar">
+            <div class="icon-container">
+                <img src="{% static 'pontos_turisticos/img/lupa.png' %}" alt="Ícone da Lupa">
             </div>
+            <form action="#" method="GET">
+                <input type="text" class="search-input" placeholder="Pesquise seu ponto turístico" id="search" name="q">
+            </form>
         </div>
-        <div class="amostra-pontos-turisticos">
-            <h2>Pontos Mais visitados</h2>
-            <div>
-                <ul>
-                    <!-- Adicionar a seguinte lógica: 
-                        Enquanto há imagens, mostre as imagens 
-                    -->
+    </div>
+    <div class="amostra-pontos-turisticos">
+        <h2>Pontos Mais Visitados</h2>
+        <div class="pontos-lista">
+            <ul>
+                {% for ponto in pontos_turisticos %}
+                    {% if ponto.popularidade == "Alta" %}
+                        <li>
+                            <div class="ponto-turistico-item">
+                                <img src="{% static 'pontos_turisticos/img/' %}{{ ponto.imagem }}" alt="{{ ponto.nome }}">
+                                <h3>{{ ponto.nome }}</h3>
+                                <p>{{ ponto.descricao }}</p>
+                                <a href="{% url 'detalhes_ponto' ponto.id %}">Saiba mais</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-                    <!--
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    -->
+    <div class="amostra-pontos-turisticos">
+        <h2>Pontos Turísticos Culturais</h2>
+        <div class="pontos-lista">
+            <ul>
+                {% for ponto in pontos_turisticos %}
+                    {% if ponto.tipo == "Cultural" %}
+                        <li>
+                            <div class="ponto-turistico-item">
+                                <img src="{% static 'pontos_turisticos/img/'|add:ponto.imagem %}" alt="{{ ponto.nome }}">
+                                <h3>{{ ponto.nome }}</h3>
+                                <p>{{ ponto.descricao }}</p>
+                                <a href="{% url 'detalhes_ponto' ponto.id %}">Saiba mais</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-                    {% include "global/partials/_carrossel.html" %}
-                </ul>
-            </div>
+    <div class="amostra-pontos-turisticos">
+        <h2>Pontos Turísticos Naturais</h2>
+        <div class="pontos-lista">
+            <ul>
+                {% for ponto in pontos_turisticos %}
+                    {% if ponto.tipo == "Natural" %}
+                        <li>
+                            <div class="ponto-turistico-item">
+                                <img src="{% static 'pontos_turisticos/img/'|add:ponto.imagem %}" alt="{{ ponto.nome }}">
+                                <h3>{{ ponto.nome }}</h3>
+                                <p>{{ ponto.descricao }}</p>
+                                <a href="{% url 'detalhes_ponto' ponto.id %}">Saiba mais</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
-        <div class="amostra-pontos-turisticos">
-            <h2>Pontos Turistico Cultural</h2>
-            <div>
-                <ul>
-                    <!--
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    -->
-                    {% include "global/partials/_carrossel.html" %}
-                </ul>
-            </div>
-        </div>
-        <div class="amostra-pontos-turisticos">
-            <h2>Pontos Turistico Natural</h2>
-            <div>
-                <ul>
-                    <!--
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    <li><a href=""><img src="#" alt="Ponto Turistico"></a></li>
-                    -->
-                    {% include "global/partials/_carrossel.html" %}
-                </ul>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
 {% include "global/partials/_footer.html" %}

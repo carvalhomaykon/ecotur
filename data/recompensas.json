@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "nome": "Carrinho de Lata",
+        "tipo": "Reciclável",
+        "preco": "100 pontos"
+    },
+    {
+        "id": "2",
+        "nome": "Vaso de Planta",
+        "tipo": "Natural",
+        "preco": "200 pontos"
+    },
+    {
+        "id": "3",
+        "nome": "Ecobag",
+        "tipo": "Reciclável",
+        "preco": "50 pontos"
+    }
+]

@@ -1,0 +1,30 @@
+{% load static %}
+
+{% include "global/partials/_header.html" %}
+
+    <section>
+        <h1>Lista de Recompensas Disponíveis</h1>
+
+        <div>
+            <div>
+                <img src="#" alt="Icone Usuário">
+            </div>
+            <div>
+                @nome_usuario
+            </div>
+        </div>
+
+        <div>
+            <h3>Pontos: 150</h3>
+        </div>
+
+        {% if pontos %}
+            {% for ponto in pontos %}
+                {% include "global/partials/_cards.html" %}
+            {% endfor %}
+        {% else %}
+            <h2>Nenhum ponto encontrado</h2>
+        {% endif %}
+    </section>
+
+{% include "global/partials/_footer.html" %}

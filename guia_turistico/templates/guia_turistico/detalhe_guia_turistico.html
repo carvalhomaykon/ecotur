@@ -1,0 +1,62 @@
+{% load static %}
+
+{% include "global/partials/_header.html" %}
+
+<section>
+    <h1>{{ ponto.nome }}</h1>
+    <div class="propaganda">
+        <img src="{% static "global/img/belem-inicio-c.png" %}" alt="Imagem da Propaganda do Pacote">
+    </div>
+    <div class="detalhes">
+        <ul>
+            <li>Pacote: {{ ponto.nome }}</li>
+            <li>Duração: {{ ponto.duracao|default:"Não especificado" }}</li> <!-- Adicionar campo no JSON se necessário -->
+            <li>Preço: {{ ponto.preco }}</li>
+            <li>Guia: {{ ponto.nome_guia }}</li>
+            <li>Idioma(s): {{ ponto.idiomas }}</li>
+        </ul>
+    </div>
+
+    <h2>Sobre</h2>
+    <div class="sobre-guia">
+        <div class="user">
+            <img src="{% static 'global/img/icone_user.png' %}" alt="Icone Usuário">
+            <p>{{ ponto.nome_guia }}</p>
+            <p>Estrelas: {{ ponto.estrelas|default:"Avaliação não disponível" }}</p> <!-- Adicionar campo no JSON se necessário -->
+        </div>
+        <div>
+            Descrição: {{ ponto.descricao_guia }}
+        </div>
+    </div>
+
+    <h2>Roteiro de Visitas</h2>
+    <div class="roteiro">
+        <ul>
+            {% for ponto in ponto.roteiro %}
+                <li> <a href="#">{{ ponto.ponto_turistico }}</a> - {{ ponto.tempo_visita }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <h2>Contatos</h2>
+    <div class="contatos">
+        <div class="link-contato">
+            <img src="{% static 'global/img/instagram_icon.png' %}" alt="Icone Instagram">
+            <p><a href="https://www.instagram.com/{{ ponto.instagram }}">{{ ponto.instagram }}</a></p>
+        </div>
+        <div class="link-contato">
+            <img src="{% static 'global/img/facebook_icon.png' %}" alt="Icone Facebook">
+            <p><a href="{{ ponto.facebook|default:'#' }}">@facebook</a></p> <!-- Adicionar campo no JSON se necessário -->
+        </div>
+        <div class="link-contato">
+            <img src="{% static 'global/img/whatsapp_icon.png' %}" alt="Icone WhatsApp">
+            <p><a href="{{ ponto.whatsapp }}">WhatsApp</a></p>
+        </div>
+    </div>
+
+    <div class="button-contato">
+        <button><a href="{{ ponto.whatsapp }}"><b>Entrar em Contato</b></a></button>
+    </div>
+</section>
+
+{% include "global/partials/_footer.html" %}

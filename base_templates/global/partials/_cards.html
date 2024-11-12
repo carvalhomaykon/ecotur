@@ -1,23 +1,25 @@
+{% load static %}
+
 <div class="card-geral">
     <div class="card">
         <div class="img-ponto-turistico">
-            <img src="../../../base_static/global/img/Bioma Amazônico.png" alt="Imagem Teste">
+            <img src="{% static 'global/img/Bioma Amazônico.png' %}" alt="Imagem do Ponto Turístico">
         </div>
         <div class="dados">
-            <h3>Nome do Ponto Turistico</h3>
+            <h3>{{ ponto.nome }}</h3>
             <ul>
-                <li>Descrição: </li>
-                <li>Dificuldade de Acesso: </li>
-                <li>Tempo de Visita: </li>
-                <li>Distância: </li>
-                <li>Popularidade: </li>
-                <li>Tipo de Ponto Turistico: </li>
+                {% for chave, valor in ponto.items %}
+                    <li><strong>{{ chave|capfirst }}:</strong> {{ valor }}</li>
+                {% endfor %}
+                <p><a href="#"> Saiba mais</a></p>
             </ul>
-            <div class="button">
-                <button class="adicionar-rota">
-                    Adicionar à Rota
-                </button>
-            </div>
+            {% if exibir_botao %}
+                <div class="button">
+                    <button class="adicionar-rota" >
+                        {{ nome_botao }}
+                    </button>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

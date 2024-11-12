@@ -1,0 +1,25 @@
+.filtro-guia ul{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+select{
+    border: none;
+}
+
+.button{
+    margin-top: 20px;
+    text-align: center;
+}
+ 
+p{
+    margin-top: 30px;
+    text-align: justify;
+}
+

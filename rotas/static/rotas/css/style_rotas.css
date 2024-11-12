@@ -7,18 +7,25 @@
     display: flex;
     justify-content: center;
     gap: 40px;
+    text-align: left;
+    align-items: center;
+    background-color: #E0F7E9;  
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
 }
 
-.cidade-filtro{
+select{
+    border: none;
+    background-color: #E0F7E9;
+}
+
+.filtro-div{
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.filtros{
-    text-align: left;
-    align-items: center;
-}
 
 .button-filtrar button {
     width: 100%;

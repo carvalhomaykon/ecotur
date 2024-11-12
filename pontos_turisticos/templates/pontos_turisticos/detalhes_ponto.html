@@ -1,0 +1,95 @@
+{% load static %}
+{% include "global/partials/_header.html" %}
+
+<section>
+    <!-- Título e informações principais -->
+    <div>
+        <h1>{{ ponto.nome }}</h1>
+        <p>Endereço: {{ ponto.endereco }}</p>
+        <p>Horário: {{ ponto.horario }}</p>
+        <p>Preço: {{ ponto.preco }}</p>
+    </div>
+
+    <!-- História e Curiosidades -->
+    <div>
+        <h2>História e Curiosidades</h2>
+        <p>{{ ponto.historia }}</p>
+    </div>
+
+    <!-- Galeria de Imagens -->
+    <div>
+        <h2>Galeria de Imagens</h2>
+        <ul>
+            {% for imagem in ponto.imagens %}
+                <li>
+                    <img src="{{ imagem }}" alt="Imagem {{ forloop.counter }}" />
+                </li>
+            {% empty %}
+                <li><p>Sem imagens disponíveis.</p></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Atividades e Atrações -->
+    <div>
+        <h2>Atividades e Atrações</h2>
+        <ul>
+            {% for atividade in ponto.atividades %}
+                <li>{{ atividade }}</li>
+            {% empty %}
+                <li><p>Sem atividades listadas.</p></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Endereço e Contatos -->
+    <div>
+        <h2>Endereço e Contatos</h2>
+        <ul>
+            <li>Endereço: <a href="https://maps.google.com/?q={{ ponto.endereco|urlencode }}" target="_blank">{{ ponto.endereco }}</a></li>
+            <li>
+                <div>
+                    <img src="{% static 'pontos_turisticos/img/instagram_logo.png' %}" alt="Logo Instagram">
+                </div>
+                <p>{{ ponto.instagram }}</p>
+            </li>
+            <li>
+                <div>
+                    <img src="{% static 'pontos_turisticos/img/telefone_logo.png' %}" alt="Logo Telefone">
+                </div>
+                <p>{{ ponto.telefone }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Comentários -->
+    <div>
+        <h2>Comentários</h2>
+        <ul>
+            {% for comentario in ponto.comentarios %}
+                <li>
+                    <p>{{ comentario }}</p>
+                </li>
+            {% empty %}
+                <li><p>Sem comentários disponíveis.</p></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Botão para adicionar à rota -->
+    <div>
+        <button onclick="adicionarRota({{ ponto.id }})">
+            Adicionar à Rota
+        </button>
+    </div>
+</section>
+
+{% include "global/partials/_footer.html" %}
+
+<script>
+    // Função para adicionar o ponto turístico à rota
+    function adicionarRota(id) {
+        // Aqui você pode adicionar a lógica para salvar o ponto turístico na rota do usuário
+        alert('Ponto turístico adicionado à rota!');
+    }
+</script>

@@ -9,17 +9,15 @@
         </div>
 
         <div class="filtros">
-            <div class="cidade-filtro">
-                <label for="cidade">Cidade</label>
-                <select name="cidade" id="cidade">
-                    <option value="belem" selected>Belém</option>
+            <div class="filtro-div">
+                <select name="filtros" id="filtros">
+                    <option value="belem">Belém</option>
                     <option value="ananindeua">Ananindeua</option>
                     <option value="marituba">Marituba</option>
                 </select>
             </div>
 
             <div class="filtros">
-                <!-- Título expansível da lista de filtros -->
                 <details>
                     <summary>Filtros</summary>
             
@@ -76,13 +74,26 @@
         
         <h2>Sugestões:</h2>
 
-        {% include "global/partials/_cards.html" %}
-        {% include "global/partials/_cards.html" %}
-        {% include "global/partials/_cards.html" %}
+        {% if pontos %}
+            {% for ponto in pontos %}
+                {% include "global/partials/_cards.html" %}
+            {% endfor %}
+        {% else %}
+            <h2>Nenhum ponto encontrado</h2>
+        {% endif %}
+        
 
         <div class="button-rota">
-            <button><a href="#"><b>Gerar Rota</b></a></button>
+            <button onclick="gerarRota() ><a href="#"><b>Gerar Rota</b></a></button>
         </div>
     </section>
 
 {% include "global/partials/_footer.html" %}
+
+<script>
+    // Função para adicionar o ponto turístico à rota
+    function gerarRota() {
+        // Aqui você pode adicionar a lógica para salvar o ponto turístico na rota do usuário
+        alert('Gerando rota...');
+    }
+</script>

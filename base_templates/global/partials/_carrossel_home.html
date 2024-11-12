@@ -1,16 +1,12 @@
+{% load static %}
+
 <div class="carousel-container">
     <!-- Imagens do carrossel -->
     <div class="carousel-slide">
-        {% if pontos %}
-            {% for ponto in pontos %}
-                <a href="{% url 'detalhes_ponto_turistico' ponto.id %}">
-                    <img src="{{ ponto.imagem }}" alt="{{ ponto.nome }}">
-                </a>        
-            {% endfor %}
-        {% else %}
-            <h2>Nenhum ponto encontrado</h2>
-        {% endif %}
-        
+        <img src="{% static "global/img/belem-inicio-c.png" %}" alt="Imagem 1">
+        <img src="{% static "global/img/Bioma Amazônico.png" %}" alt="Imagem 2">
+        <img src="{% static "global/img/logo-ufra.png" %}" alt="Imagem 3">
+        <img src="{% static "global/img/Cidade-de-Belem.png" %}" alt="Imagem 4">
     </div>
     <!-- Botões de navegação -->
     <button class="carousel-button left" onclick="moveSlide(-1)">&#10094;</button>
@@ -19,9 +15,10 @@
 
 <!-- Indicadores de página -->
 <div class="carousel-indicators">
-    {% for ponto in pontos %}
-        <span class="indicator {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.counter }})"></span>
-    {% endfor %}
+    <span class="indicator active" onclick="currentSlide(1)"></span>
+    <span class="indicator" onclick="currentSlide(2)"></span>
+    <span class="indicator" onclick="currentSlide(3)"></span>
+    <span class="indicator" onclick="currentSlide(4)"></span>
 </div>
 
 <script>

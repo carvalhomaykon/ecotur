@@ -8,4 +8,4 @@ function menuShow(){
         menuMobile.classList.add("open");
         document.querySelector('.icon').src = "img/close_white_36dp.svg";
     }
-}
+}   
