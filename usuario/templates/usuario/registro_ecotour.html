@@ -154,6 +154,24 @@
             text-decoration: underline;
         }
 
+        .success-message {
+            background-color: #e0f7e9;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .error-message {
+            background-color: #ffebee;
+            color: #d32f2f;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }        
+
     </style>
 </head>
 <body>
@@ -162,14 +180,27 @@
     </div>
     <div class="signup-container">
         <h2>Criar Conta</h2>
-        <form action="#" method="post">
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <div class="
+                        {% if message.tags == 'success' %} success-message
+                        {% elif message.tags == 'error' %} error-message
+                        {% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form action="{% url 'cadastro' %}" method="post">
+            {% csrf_token %}
             <input type="text" name="name" placeholder="Nome completo" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="text" name="username" placeholder="Nome de usuário" required>
             <input type="password" name="password" placeholder="Senha" required>
             <input type="password" name="confirm_password" placeholder="Confirme a senha" required>
             <button type="submit">Cadastrar</button>
-            <a href="{% url 'usuario' %}">Já tem uma conta? Faça login</a>
+            <a href="{% url 'login' %}">Já tem uma conta? Faça login</a>
         </form>
         <div class="termo">
             <p>Ao clicar em 'Cadastrar', você concorda com os nossos <a href="#" id="termosLink">Termos de Uso e Política de Privacidade</a> do EcoTur e autoriza o compartilhamento de seus dados.</p>

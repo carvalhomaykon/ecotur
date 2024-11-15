@@ -16,6 +16,76 @@
     </div>
     <div class="amostra-pontos-turisticos">
         <h2>Pontos Mais Visitados</h2>
+        <div class="galeria-de-imagem">
+            <div class="image-container">
+                <img src="imagem-1.jpg" alt="Ponto Turistico 1-1">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-2.jpg" alt="Ponto Turistico 1-2">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-3.jpg" alt="Ponto Turistico 1-3">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-4.jpg" alt="Ponto Turistico 1-4">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="amostra-pontos-turisticos">
+        <h2>Pontos Turísticos Culturais</h2>
+        <div class="galeria-de-imagem">
+            <div class="image-container">
+                <img src="imagem-1.jpg" alt="Ponto Turistico 1-1">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-2.jpg" alt="Ponto Turistico 1-2">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-3.jpg" alt="Ponto Turistico 1-3">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-4.jpg" alt="Ponto Turistico 1-4">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="amostra-pontos-turisticos">
+        <h2>Pontos Turísticos Naturais</h2>
+        <div class="galeria-de-imagem">
+            <div class="image-container">
+                <img src="imagem-1.jpg" alt="Ponto Turistico 1-1">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-2.jpg" alt="Ponto Turistico 1-2">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-3.jpg" alt="Ponto Turistico 1-3">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+            <div class="image-container">
+                <img src="imagem-4.jpg" alt="Ponto Turistico 1-4">
+                <div class="address">nome/endereço do ponto turistico</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "global/partials/_footer.html" %}
+
+<!--
+<div class="amostra-pontos-turisticos">
+        <h2>Pontos Mais Visitados</h2>
         <div class="pontos-lista">
             <ul>
                 {% for ponto in pontos_turisticos %}
@@ -33,46 +103,4 @@
             </ul>
         </div>
     </div>
-
-    <div class="amostra-pontos-turisticos">
-        <h2>Pontos Turísticos Culturais</h2>
-        <div class="pontos-lista">
-            <ul>
-                {% for ponto in pontos_turisticos %}
-                    {% if ponto.tipo == "Cultural" %}
-                        <li>
-                            <div class="ponto-turistico-item">
-                                <img src="{% static 'pontos_turisticos/img/'|add:ponto.imagem %}" alt="{{ ponto.nome }}">
-                                <h3>{{ ponto.nome }}</h3>
-                                <p>{{ ponto.descricao }}</p>
-                                <a href="{% url 'detalhes_ponto' ponto.id %}">Saiba mais</a>
-                            </div>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-
-    <div class="amostra-pontos-turisticos">
-        <h2>Pontos Turísticos Naturais</h2>
-        <div class="pontos-lista">
-            <ul>
-                {% for ponto in pontos_turisticos %}
-                    {% if ponto.tipo == "Natural" %}
-                        <li>
-                            <div class="ponto-turistico-item">
-                                <img src="{% static 'pontos_turisticos/img/'|add:ponto.imagem %}" alt="{{ ponto.nome }}">
-                                <h3>{{ ponto.nome }}</h3>
-                                <p>{{ ponto.descricao }}</p>
-                                <a href="{% url 'detalhes_ponto' ponto.id %}">Saiba mais</a>
-                            </div>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</section>
-
-{% include "global/partials/_footer.html" %}
+-->

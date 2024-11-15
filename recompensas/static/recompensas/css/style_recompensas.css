@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.usuario{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.usuario img{
+    height: 30px;
+}
+
+.frase-inicial{
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.frase-inicial span{
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.historico-acoes{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.historico-acoes ul{
+    margin-left: 30px;
+}
+
+.missoes{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.missoes ul{
+    margin-left: 30px;
+}
+
+.button{
+    text-align: center;
+}
+
+.button button{
+    margin-top: 30px;
+    width: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+.button button:hover {
+    background-color: #388e3c;
+}
+
+.button a{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 1030px) {
+    .button button{
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024) {    
+    .button button{
+        width: 80%;
+    }
+}

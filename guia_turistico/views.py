@@ -44,7 +44,8 @@ def guia_turistico(request):
         'nome_do_escopo': 'guia_turistico',
         'exibir_botao': True,
         'nome_botao': 'Entrar em Contato',
-        'pontos': pontos
+        'botao_click': False,
+        'pontos': pontos,
     }
 
     return render(

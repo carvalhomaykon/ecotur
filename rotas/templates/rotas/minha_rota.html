@@ -2,22 +2,65 @@
 
 {% include "global/partials/_header.html" %}
 
-    <section>
-        <h1>Roteiro de Visitas</h1>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6707.950599715394!2d-48.45608480767942!3d-1.432553564497535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c7576d25be9%3A0xf3f3ffab0fe0e391!2sBosque%20Rodrigues%20Alves%20-%20Jardim%20Zoobot%C3%A2nico%20da%20Amaz%C3%B4nia!5e0!3m2!1spt-BR!2sbr!4v1730831021653!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+<section>
+    <h1>Roteiro de Visitas</h1>
+    <div id="map" style="height: 500px; width: 100%;"></div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Recupera os pontos turísticos do localStorage
+            const pontosRota = JSON.parse(localStorage.getItem('pontosRota')) || [];
+            
+            // Verifica se há pontos para exibir
+            if (pontosRota.length === 0) {
+                alert("Nenhum ponto para exibir na rota.");
+                return;
+            }
+
+            // Inicializa o mapa com posição padrão
+            const map = L.map('map').setView([-1.457953, -48.478489], 13);
+
+            // Adiciona a camada do OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Adiciona localização inicial do usuário
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const userCoords = [position.coords.latitude, position.coords.longitude];
+                const userMarker = L.marker(userCoords).addTo(map);
+                userMarker.bindPopup("Você está aqui!");
+
+                // Adiciona marcadores dos pontos turísticos ao mapa
+                pontosRota.forEach(ponto => {
+                    const marker = L.marker([ponto.coords[0], ponto.coords[1]]).addTo(map);
+                    marker.bindPopup(`<h3>${ponto.nome}</h3><p>${ponto.descricao || "Descrição indisponível."}</p>`);
+                });
+
+                // Gera a rota a partir da localização do usuário
+                const rotaCoords = [L.latLng(userCoords), ...pontosRota.map(ponto => L.latLng(ponto.coords[0], ponto.coords[1]))];
+                L.Routing.control({
+                    waypoints: rotaCoords,
+                    routeWhileDragging: true
+                }).addTo(map);
+            });
+        });
+    </script>
+
+    <!-- Lista de visitas -->
+    <div id="lista-visitas">
+        {% for ponto in pontosRota %}
         <div class="visitas">
             <div class="ico-loc">
-                <img src="{% static "rotas/img/icone-loc.png" %}" alt="Icone de Localização">
+                <img src="{% static "rotas/img/icone-loc.png" %}" alt="Ícone de Localização">
             </div>
             <div class="infor">
                 <div class="detalhes">
                     <a href="#">
-                        <h3> Nome Ponto Turistico </h3>
+                        <h3>{{ ponto.nome }}</h3>
                     </a>
-                    <p> 2 km (Quantos Km pra chegar no destino) </p>
+                    <p>{{ ponto.descricao|default:"Distância não calculada" }}</p>
                 </div>
                 <div class="buttons-detalhes">
                     <button class="concluir">Visitado</button>
@@ -25,51 +68,17 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
+    </div>
 
-        <div class="visitas">
-            <div class="ico-loc">
-                <img src="{% static "rotas/img/icone-loc.png" %}" alt="Icone de Localização">
-            </div>
-            <div class="infor">
-                <div class="detalhes">
-                    <a href="#">
-                        <h3> Nome Ponto Turistico </h3>
-                    </a>
-                    <p> 2 km (Quantos Km pra chegar no destino) </p>
-                </div>
-                <div class="buttons-detalhes">
-                    <button class="concluir">Visitado</button>
-                    <button class="cancelar">Cancelar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="visitas">
-            <div class="ico-loc">
-                <img src="{% static "rotas/img/icone-loc.png" %}" alt="Icone de Localização">
-            </div>
-            <div class="infor">
-                <div class="detalhes">
-                    <a href="#">
-                        <h3> Nome Ponto Turistico </h3>
-                    </a>
-                    <p> 2 km (Quantos Km pra chegar no destino) </p>
-                </div>
-                <div class="buttons-detalhes">
-                    <button class="concluir">Visitado</button>
-                    <button class="cancelar">Cancelar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="buttons">
-            <button class="concluir">
-                Concluir
-            </button>
-            <button class="cancelar">
-                Cancelar
-            </button>
-        </div>
-    </section>
+    <div class="buttons">
+        <button class="concluir">   
+            Concluir
+        </button>
+        <button class="cancelar">
+            Cancelar
+        </button>
+    </div>
+</section>
 
 {% include "global/partials/_footer.html" %}

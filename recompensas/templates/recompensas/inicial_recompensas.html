@@ -5,20 +5,20 @@
     <section>
         <h1>Suas Recompensas Ecológicas</h1>
 
-        <div>
+        <div class="usuario">
             <div>
-                <img src="#" alt="Icone Usuário">
+                <img src="{% static "global/img/icone_user.png" %}" alt="Icone Usuário">
             </div>
             <div>
                 @nome_usuario
             </div>
         </div>
 
-        <div>
+        <div class="frase-inicial">
             <p>Parabéns, Nome_do_usuário! Você possui <span>xxx</span> pontos pelas práticas ecológicas.</p>
         </div>
 
-        <div>
+        <div class="historico-acoes">
             <h2>Histórico de Ações Ecológicas</h2>
             <ul>
                 <li>Ação Ecológica - Data - Pontos</li>
@@ -26,7 +26,7 @@
             </ul>
         </div>
 
-        <div>
+        <div class="missoes">
             <h2>Missões Para Ganhar Pontos</h2>
             <ul>
                 <li>Separe seu lixo por material - Quantidade de Pontos;</li>
@@ -35,8 +35,8 @@
             </ul>
         </div>
 
-        <div>
-            <button>
+        <div class="button">
+            <button >
                 Resgatar
             </button>
         </div>

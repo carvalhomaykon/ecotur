@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ nome_da_pagina }}</title>
+    <link rel="stylesheet" href="{% static 'global/css/style_avaliacao.css' %}">
+    <link rel="shortcut icon" href="{% static "global/img/logo-ecotur.ico" %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '' %}{{ nome_do_escopo }}/css/style_{{ nome_do_app }}.css">
+</head>
+<body>
+    <header>
+        <button class="button">
+            <div>
+                <a href="{% url "home" %}"><img src="{% static "global/img/close_white_36dp_black.svg" %}" alt=""></a>
+            </div>
+        </button>   
+    
+        <div class="frase-pergunta">
+            <h2> Aqui fica a frase da pergunta {{ frase_pergunta }} </h2>
+        </div>
+    </header>
+

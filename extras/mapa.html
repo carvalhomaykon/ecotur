@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Rota Turística</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 600px;"></div>
+    <button onclick="gerarRota()">Gerar Rota</button>
+
+    <script>
+        // Inicializa o mapa
+        const map = L.map('map').setView([-1.457953, -48.478489], 13);
+
+        // Adiciona a camada do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Lista de pontos turísticos
+        const pontosTuristicos = [
+            { nome: "Ver-o-Peso", coords: [-1.4529, -48.5048], descricao: "Mercado icônico em Belém.", imagem: "URL_DA_IMAGEM" },
+            { nome: "Mangal das Garças", coords: [-1.4485, -48.4850], descricao: "Parque ecológico com fauna e flora.", imagem: "URL_DA_IMAGEM" },
+            { nome: "Teatro da Paz", coords: [-1.4554, -48.5021], descricao: "Teatro histórico com arquitetura impressionante.", imagem: "URL_DA_IMAGEM" }
+        ];
+
+        // Função para gerar a rota
+        function gerarRota() {
+            const rotaCoords = pontosTuristicos.map(ponto => L.latLng(ponto.coords[0], ponto.coords[1]));
+
+            L.Routing.control({
+                waypoints: rotaCoords,
+                routeWhileDragging: true
+            }).addTo(map);
+        }
+    </script>
+</body>
+</html>

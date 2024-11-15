@@ -1,55 +1,119 @@
-<div class="carousel-container">
-    <!-- Imagens do carrossel -->
-    <div class="carousel-slide">
-        {% if pontos %}
-            {% for ponto in pontos %}
-                <a href="{% url 'detalhes_ponto_turistico' ponto.id %}">
-                    <img src="{{ ponto.imagem }}" alt="{{ ponto.nome }}">
-                </a>        
-            {% endfor %}
-        {% else %}
-            <h2>Nenhum ponto encontrado</h2>
-        {% endif %}
-        
+{% load static %}    
+    <div class="content">
+        <h2>Curiosidades e História dos Pontos Turísticos de Belém</h2>
+
+        <!-- Ponto Turistico 1 -->
+        <div class="tour-point">
+            <h3>Ponto Turistico 1</h3>
+            <div class="galeria-de-imagem">
+                <div class="image-container">
+                    <img src="imagem-1.jpg" alt="Ponto Turistico 1-1">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-2.jpg" alt="Ponto Turistico 1-2">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-3.jpg" alt="Ponto Turistico 1-3">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-4.jpg" alt="Ponto Turistico 1-4">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ponto Turistico 2 -->
+        <div class="tour-point">
+            <h3>Ponto Turistico 2</h3>
+            <div class="galeria-de-imagem">
+                <div class="image-container">
+                    <img src="imagem-1.jpg" alt="Ponto Turistico 2-1">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-2.jpg" alt="Ponto Turistico 2-2">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-3.jpg" alt="Ponto Turistico 2-3">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-4.jpg" alt="Ponto Turistico 2-4">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ponto Turitico 3 -->
+        <div class="tour-point">
+            <h3>Ponto Turitico 3</h3>
+            <div class="galeria-de-imagem">
+                <div class="image-container">
+                    <img src="imagem-1.jpg" alt="Ponto Turitico 3-1">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-2.jpg" alt="Ponto Turitico 3-2">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-3.jpg" alt="Ponto Turitico 3-3">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-4.jpg" alt="Ponto Turitico 3-4">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ponto Turistico 4 -->
+        <div class="tour-point">
+            <h3>Ponto Turistico 4</h3>
+            <div class="galeria-de-imagem">
+                <div class="image-container">
+                    <img src="imagem-1.jpg" alt="Ponto Turistico 4-1">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-2.jpg" alt="Ponto Turistico 4-2">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-3.jpg" alt="Ponto Turistico 4-3">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-4.jpg" alt="Ponto Turistico 4-4">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ponto Turistico --->
+        <div class="tour-point">
+            <h3>Ponto Turistico 5</h3>
+            <div class="galeria-de-imagem">
+                <div class="image-container">
+                    <img src="imagem-1.jpg" alt="Ponto Turistico 5-1">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-2.jpg" alt="Ponto Turistico 5-2">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-3.jpg" alt="Ponto Turistico 5-3">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+                <div class="image-container">
+                    <img src="imagem-4.jpg" alt="Ponto Turistico 5-4">
+                    <div class="address">nome/endereço do ponto turistico</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Botões de navegação -->
-    <button class="carousel-button left" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="carousel-button right" onclick="moveSlide(1)">&#10095;</button>
-</div>
-
-<!-- Indicadores de página -->
-<div class="carousel-indicators">
-    {% for ponto in pontos %}
-        <span class="indicator {% if forloop.first %}active{% endif %}" onclick="currentSlide({{ forloop.counter }})"></span>
-    {% endfor %}
-</div>
-
-<script>
-    let slideIndex = 1;
-    const slides = document.querySelectorAll('.carousel-slide img');
-    const indicators = document.querySelectorAll('.indicator');
-
-    // Função para mostrar o slide atual
-    function showSlide(n) {
-        if (n > slides.length) slideIndex = 1;
-        if (n < 1) slideIndex = slides.length;
-        const offset = (slideIndex - 1) * 100;
-        document.querySelector('.carousel-slide').style.transform = `translateX(-${offset}%)`;
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === slideIndex - 1);
-        });
-    }
-
-    // Função para mover o slide
-    function moveSlide(n) {
-        showSlide(slideIndex += n);
-    }
-
-    // Função para definir o slide atual
-    function currentSlide(n) {
-        showSlide(slideIndex = n);
-    }
-
-    // Exibe o primeiro slide
-    showSlide(slideIndex);
-</script>

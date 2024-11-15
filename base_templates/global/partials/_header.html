@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="{% static '' %}{{ nome_do_escopo }}/css/style_{{ nome_do_app }}.css">
     <link rel="stylesheet" href="{% static "global/css/style_cards.css" %}">
     <link rel="shortcut icon" href="{% static "global/img/logo-ecotur.ico" %}" type="image/x-icon">
+
+    <!-- Importações Para o Mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+    
 </head>
 <body>
     <header>
@@ -51,19 +58,36 @@
                             <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
                         </li>
                         <li>
+                            <a href="{% url "guia_turistico" %}">Guia Turistico</a>
+                        </li>
+                        <li>
                             <a href="{% url "recompensas" %}">Recompensas</a>
                         </li>
                         <li>
-                            <a href="{% url "avaliacao" %}">Sugestões</a>
-                        </li>
-                        <li>
-                            <a href="{% url "guia_turistico" %}">Guia Turistico</a>
+                            <a href="{% url "avaliacao_geral" %}">Sugestões</a>
                         </li>
                     </ul>
                     <li>
-                        <div class="entrar">
-                            <a href="{% url "usuario" %}">Entrar</a>
-                        </div>
+                        {% if request.user.is_authenticated %}
+                            <ul class="usuario-logado">
+                                <li>
+                                    Seja Bem vindo, {{ request.user.username }} 
+                                </li>
+                                <li>
+                                    |
+                                </li>
+                                <li>
+                                    <div class="entrar">
+                                        <button><a href="{% url "logout" %}">Sair</a></button>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                        {% else %}
+                            <div class="entrar">
+                                <button><a href="{% url "login" %}">Entrar</a></button>
+                            </div>
+                        {% endif %}
                         <!-- <a href="#"><img src="{% static "global/img/icone_user.png" %}" alt="Imagem do Ícone de Usuário"></a> -->
                     </li>
                     <li class="mobile-menu-icon">
@@ -100,19 +124,26 @@
                         <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
                     </li>
                     <li>
+                        <a href="{% url "guia_turistico" %}">Guia Turistico</a>
+                    </li>
+                    <li>
                         <a href="{% url "recompensas" %}">Recompensas</a>
                     </li>
                     <li>
-                        <a href="{% url "avaliacao" %}">Sugestões</a>
-                    </li>
-                    <li>
-                        <a href="{% url "guia_turistico" %}">Guia Turistico</a>
+                        <a href="{% url "avaliacao_geral" %}">Sugestões</a>
                     </li>
                 </ul>
-
-                <div class="entrar">
-                    <button><a href="{% url "usuario" %}">Entrar</a></button>
-                </div>
+                
+                {% if request.user.is_authenticated %}
+                    <div class="entrar">
+                        <button><a href="{% url "logout" %}">Sair</a></button>
+                    </div>
+                {% else %}
+                    <div class="entrar">
+                        <button><a href="{% url "login" %}">Entrar</a></button>
+                    </div>
+                {% endif %}
+                
             </div>
         </div>
     </header>

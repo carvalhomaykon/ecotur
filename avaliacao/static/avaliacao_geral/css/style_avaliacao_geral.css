@@ -1,0 +1,110 @@
+.dropdown-content-menu{
+    display: none;
+}
+
+.open{
+    display: block;
+}
+
+.menu-sugestao{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.dropdown-content-menu form{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.menu-sugestao button{
+    background-color: #4caf50;
+    border: none;
+    padding: 20px 70px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 40%;
+}
+
+.dropdown-content-menu form{
+    display: flex;
+    flex-direction: column; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dropdown-content-menu form label{
+    text-align: left;
+    font-weight: bold;
+}
+
+.dropdown-content-menu form input{
+    border: none;
+    background-color: #D9D9D9;
+    padding: 8px 30px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 20%;
+}
+
+.button-footer{
+    text-align: center;
+}
+
+.button-footer button{
+    margin-top: 30px;
+    width: 25%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+.button-footer button:hover {
+    background-color: #388e3c;
+}
+
+.button-footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.button-footer{
+    margin-top: 60px;
+    border-top: rgb(89, 89, 89) solid 5px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1030px) {
+    .menu-sugestao button{
+        width: 90%;
+        font-size: 16px;
+    }
+    .dropdown-content-menu form input{
+        width: 70%;
+    }
+
+    .button-footer button{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024) {    
+    .menu-sugestao button{
+        width: 80%;
+        font-size: 16px;
+    }
+    .dropdown-content-menu form input{
+        width: 70%;
+    }
+    .button-footer button{
+        width: 50%;
+    }
+}

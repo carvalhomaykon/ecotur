@@ -1,0 +1,68 @@
+{% load static %}
+
+{% include "global/partials/_header.html" %}
+
+    <section>
+        <div class="menu-sugestao">
+            <button onclick="dropdown_button(this)" class="dropdown-button">
+                Sugestão de Pontos Turísticos 
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="dropdown-content-menu">
+                <form action="">
+                    <label for="pontoTuristico">Nome Ponto Turístico</label>
+                    <input type="text" id="pontoTuristico" placeholder="Digite o nome do ponto turístico">
+                    
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" placeholder="Digite o endereço">
+                </form>
+            </div>
+        </div>
+
+        <div class="menu-sugestao">
+            <button onclick="dropdown_button(this)" class="dropdown-button">
+                Sugestão Para o Aplicativo 
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="dropdown-content-menu">
+                <form action="">
+                    <label for="pontoTuristico2">Campo do Site</label>
+                    <input type="text" id="pontoTuristico2" placeholder="Digite o campo do site para sugestão">
+
+                    <label for="pontoTuristico2">Comentário</label>
+                    <input type="text" id="pontoTuristico2" placeholder="Digite sua sugestão">
+                </form>
+            </div>
+        </div>     
+
+        <!-- Segunda lista suspensa duplicada -->
+        <div class="menu-sugestao">
+            <button onclick="dropdown_button(this)" class="dropdown-button">
+                Comentário Construtivo 
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div class="dropdown-content-menu">
+                <form action="">
+                    <label for="pontoTuristico2">Comente</label>
+                    <input type="text" id="pontoTuristico2" placeholder="Digite seu comentário construtivo">
+                </form>
+            </div>
+        </div>   
+        
+        <div class="button-footer">
+            <button>
+                {{ frase_confirmar }}
+                Frase para confirmar
+            </button>
+        </div> 
+    </section>
+
+{% include "global/partials/_footer.html" %}
+
+<script src="{% static 'avaliacao_geral/js/script.js' %}"></script>

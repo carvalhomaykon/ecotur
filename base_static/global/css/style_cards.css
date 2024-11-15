@@ -48,18 +48,18 @@
     background-color: #4caf50;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .adicionar-rota:hover {
     background-color: #388e3c;
 }
 
-.button{
+.button {
     text-align: center;
 }
 
-.card-geral{
+.card-geral {
     display: flex;
     justify-content: center;
 }

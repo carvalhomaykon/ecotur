@@ -120,18 +120,6 @@ h1{
     text-decoration: underline;
 }
 
-/* Estilo para o botão de login */
-.entrar{
-    margin-right: 30px;
-    background-color: #4caf50;
-    padding: 5px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-}
-
 .entrar a{
     text-decoration: none;
     color: white;
@@ -142,9 +130,20 @@ h1{
     color: white;
 }
 
-.entrar:hover{
+.entrar button:hover{
     background-color: #2e7d32;
     color: white;
+}
+
+.entrar button{
+    margin-right: 30px;
+    background-color: #4caf50;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
 
 
@@ -213,6 +212,26 @@ h1{
 
 .mobile-menu{
     display: none;
+}
+
+.usuario-logado{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    list-style: none;
+    text-decoration: none
+}
+.usuario-logado li{
+    font-size: 10px;
+    text-align: center;
+}
+.usuario-logado button{
+    background-color: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 @media screen and (max-width: 1024px){

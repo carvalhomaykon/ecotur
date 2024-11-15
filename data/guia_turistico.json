@@ -31,5 +31,38 @@
                 "tempo_visita": "1 hora"
             }
         ]
+    },
+    {
+        "id": "1",
+        "nome": "Ciltura",
+        "descricao": "Lugar Bonito",
+        "nome_guia": "Fulano da Silva",
+        "preco": "R$ 550,00",
+        "idiomas": "Português e Inglês",
+        "endereco": "Av. Brasil, Belém, PA",
+        "horario": "09:00 - 18:00",
+        "contato": "91 98728-6703",
+        "whatsapp": "https://wa.me/5591987286703",
+        "instagram": "@belezasbelim",
+        "facebook": "https://www.facebook.com/belezasbelim",
+        "imagem": "belezas-natural-de-belim.png",
+        "descricao_detalhada": "O Belém é um dos melhores lugares para visitar no Brasil, com uma vasta paisagem natural, rios e lagos, montanhosas e praias.",
+        "descricao_guia": "Sou um guia formado em turismo com mais de 4 anos de experiência.",
+        "duracao": "4 horas",
+        "estrelas": "4.5",
+        "roteiro": [
+            {
+                "ponto_turistico": "Ver-o-Peso",
+                "tempo_visita": "1 hora"
+            },
+            {
+                "ponto_turistico": "Mangal das Garças",
+                "tempo_visita": "1.5 horas"
+            },
+            {
+                "ponto_turistico": "Teatro da Paz",
+                "tempo_visita": "1 hora"
+            }
+        ]
     }
 ]
