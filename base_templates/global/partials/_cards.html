@@ -3,32 +3,40 @@
 <div class="card-geral">
     <div class="card">
         <div class="img-ponto-turistico">
-            <img src="{% static 'global/img/Bioma Amazônico.png' %}" alt="Imagem do Ponto Turístico">
+            <img src="{% static ponto.imagem %}" alt="Imagem {{ ponto.nome }}">
         </div>
         <div class="dados">
             <h3>{{ ponto.nome }}</h3>
             <ul>
                 {% for chave, valor in ponto.items %}
-                    {% if chave != "coords" %}
+                    {% if chave != "coords" and chave != "whatsapp" and chave != "id" and chave != "imagem" %}
                         <li><strong>{{ chave|capfirst }}:</strong> {{ valor }}</li>
                     {% endif %}
                 {% endfor %}
-                <p><a href="#">Saiba mais</a></p>
+                <p><a href="{% url nome_detalhe id=ponto.id %}">Saiba mais</a></p>
             </ul>
             {% if exibir_botao %}
                 {% if request.user.is_authenticated %}
                     <div class="button">
-                        <button 
-                            class="adicionar-rota" 
-                            onclick="adicionarRota('{{ ponto.nome }}', {{ ponto.coords|safe }}, '{{ user.username }}')">
-                            {{ nome_botao }}
-                        </button>
-                        <button onclick="limparPontosTuristicos()" class="limpar-rota">Limpar Pontos Turísticos</button>
+                        {% if card_rota %}
+                            <button 
+                                class="adicionar-rota" 
+                                onclick="adicionarRota('{{ ponto.nome }}', {{ ponto.coords|safe }}, '{{ user.username }}')">
+                                {{ nome_botao }}
+                            </button>
+                        {% else %}
+                            <a href="{{ ponto.whatsapp }}">
+                                <button
+                                    class="adicionar-rota">
+                                    {{ nome_botao }}
+                                </button>
+                            </a>
+                        {% endif %}
                     </div>
                 {% else %}
                     <div class="button">
                         <button class="adicionar-rota">
-                            <a href="{% url 'login' %}">Faça login para adicionar à rota.</a>
+                            <a href="{% url 'login' %}">{{ frase_login }}</a>
                         </button>
                     </div>
                 {% endif %}

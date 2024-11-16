@@ -10,12 +10,12 @@
                 <img src="{% static "global/img/icone_user.png" %}" alt="Icone Usuário">
             </div>
             <div>
-                @nome_usuario
+                {{user.username}}
             </div>
         </div>
 
         <div class="frase-inicial">
-            <p>Parabéns, Nome_do_usuário! Você possui <span>xxx</span> pontos pelas práticas ecológicas.</p>
+            <p>Parabéns, {{user.username}}! Você possui <span>xxx</span> pontos pelas práticas ecológicas.</p>
         </div>
 
         <div class="historico-acoes">
@@ -36,9 +36,11 @@
         </div>
 
         <div class="button">
-            <button >
-                Resgatar
-            </button>
+            <a href="{% url "resgate_recompensas" %}">
+                <button >
+                    Resgatar
+                </button>
+            </a>
         </div>
     </section>
 

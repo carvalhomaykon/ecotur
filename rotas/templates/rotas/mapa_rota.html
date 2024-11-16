@@ -41,17 +41,6 @@
                     `);
                 });
 
-                // Função para gerar uma rota entre os pontos turísticos
-                function gerarRota() {
-                    
-                    // Coordenadas dos pontos turísticos
-                    const rotaCoords = pontosTuristicos.map(ponto => L.latLng(ponto.coords[0], ponto.coords[1]));
-
-                    L.Routing.control({
-                        waypoints: rotaCoords,
-                        routeWhileDragging: true
-                    }).addTo(map);
-                }
             </script>
         </div>
 

@@ -18,7 +18,9 @@ def carregar_dados_pontos_turisticos():
             ponto = {
                 'nome': item['nome'],
                 'Tipo': item['tipo'],
-                'Preco': item['preco']
+                'Preco': item['preco'],
+                'id': item['id'],
+                'imagem': item['imagem'],
             }
 
             pontos.append(ponto)
@@ -44,6 +46,7 @@ def recompensas(request):
     )
 
 def resgate_recompensas(request):
+
     print('Regate de Recompensas')
 
     pontos = carregar_dados_pontos_turisticos()
@@ -51,13 +54,38 @@ def resgate_recompensas(request):
     context = {
         'nome_da_pagina': 'Resgatar Recompensas',
         'nome_do_app': 'resgate_recompensas',
-        'nome_do_escopo': 'resgate_recompensas',
+        'nome_do_escopo': 'recompensas',
         'exibir_botao': True,
         'nome_botao': 'Resgatar',
-        'pontos': pontos
+        'pontos': pontos,
+        'nome_detalhe': 'detalhe_recompensa'
     }
 
     return render(
         request,
         'recompensas/resgate_recompensas.html', context
+    )
+
+def detalhe_recompensa(request, id):
+    print('Detalhe da Recompensa')
+
+    pontos = carregar_dados_pontos_turisticos()
+
+    # Procura o ponto turístico pelo ID
+    pontos = next((p for p in pontos if int(p.get('id', -1)) == id), None)
+
+    if pontos is None:
+        # Caso o ponto turístico não seja encontrado, retorna uma página de erro
+        return render(request, 'pontos_turisticos/erro.html')  # Ajuste conforme a necessidade
+
+    context = {
+        'nome_da_pagina': 'Detalhe da Recompensa',
+        'nome_do_app': 'detalhe_recompensa',
+        'nome_do_escopo': 'detalhe_recompensa',
+        'pontos': pontos
+    }
+
+    return render(
+        request,
+        'recompensas/detalhe_recompensa.html', context
     )

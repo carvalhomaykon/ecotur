@@ -91,6 +91,14 @@ button{
     font-size: 17px;
 }
 
+.Iniciar{
+    background-color: #4caf50;
+}
+
+.Cancelar{
+    background-color: tomato;
+}
+
 @media screen and (max-width: 1024px){
     .ico-loc{
         margin-top: 12px;

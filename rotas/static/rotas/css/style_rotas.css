@@ -47,6 +47,11 @@ select{
     text-align: center;
 }
 
+button a{
+    text-decoration: none;
+    color: white;
+}
+
 .button-rota button{
     margin-top: 30px;
     width: 10%;

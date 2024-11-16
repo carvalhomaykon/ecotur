@@ -3,18 +3,21 @@
         "id": "1",
         "nome": "Carrinho de Lata",
         "tipo": "Reciclável",
-        "preco": "100 pontos"
+        "preco": "100 pontos",
+        "imagem": "global/img/carrinho-lata.png"
     },
     {
         "id": "2",
         "nome": "Vaso de Planta",
         "tipo": "Natural",
-        "preco": "200 pontos"
+        "preco": "200 pontos",
+        "imagem": "global/img/vaso-planta.png"
     },
     {
         "id": "3",
         "nome": "Ecobag",
         "tipo": "Reciclável",
-        "preco": "50 pontos"
+        "preco": "50 pontos",
+        "imagem": "global/img/ecobag.png"
     }
 ]

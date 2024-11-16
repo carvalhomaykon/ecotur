@@ -4,53 +4,190 @@
 
 <section>
     <h1>Roteiro de Visitas</h1>
-    <div id="map" style="height: 500px; width: 100%;"></div>
+    <div id="map"></div>
+
+    <!-- Informações do ponto turístico -->
+    <div id="info-ponto" style="display: none;">
+        <h2 id="ponto-nome"></h2>
+        <p id="ponto-descricao"></p>
+        <div id="ponto-atividades"></div>
+        <div class="buttons">
+            <button class="concluir" onclick="concluirPonto()">Concluído</button>
+            <button class="cancelar" onclick="cancelarPonto()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Botões Iniciar e Cancelar -->
+    <div class="buttons" id="botao-iniciar">
+        <button class="Iniciar" onclick="iniciarRoteiro()">
+            Iniciar
+        </button>
+        <button class="Cancelar" onclick="limparPontosTuristicos()">
+            Cancelar
+        </button>
+    </div>
 
     <script>
+        let pontosRota = JSON.parse(localStorage.getItem('pontosRota')) || [];
+        let mapa;
+        let userCoords;
+        let pontoAtualIndex = 0;
+        let rotaAtual = [];
+
         document.addEventListener("DOMContentLoaded", function () {
-            // Recupera os pontos turísticos do localStorage
-            const pontosRota = JSON.parse(localStorage.getItem('pontosRota')) || [];
-            
-            // Verifica se há pontos para exibir
             if (pontosRota.length === 0) {
                 alert("Nenhum ponto para exibir na rota.");
                 return;
             }
 
             // Inicializa o mapa com posição padrão
-            const map = L.map('map').setView([-1.457953, -48.478489], 13);
+            mapa = L.map('map').setView([-1.457953, -48.478489], 13);
 
             // Adiciona a camada do OpenStreetMap
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '© OpenStreetMap contributors'
-            }).addTo(map);
+            }).addTo(mapa);
 
             // Adiciona localização inicial do usuário
             navigator.geolocation.getCurrentPosition(function (position) {
-                const userCoords = [position.coords.latitude, position.coords.longitude];
-                const userMarker = L.marker(userCoords).addTo(map);
+                userCoords = [position.coords.latitude, position.coords.longitude];
+                const userMarker = L.marker(userCoords).addTo(mapa);
                 userMarker.bindPopup("Você está aqui!");
 
-                // Adiciona marcadores dos pontos turísticos ao mapa
-                pontosRota.forEach(ponto => {
-                    const marker = L.marker([ponto.coords[0], ponto.coords[1]]).addTo(map);
-                    marker.bindPopup(`<h3>${ponto.nome}</h3><p>${ponto.descricao || "Descrição indisponível."}</p>`);
+                // Adiciona os pontos turísticos no mapa com popups
+                pontosRota.forEach(pontosRota => {
+                    const marker = L.marker([pontosRota.coords[0], pontosRota.coords[1]]).addTo(mapa);
+                    marker.bindPopup(`
+                        <h3>${pontosRota.nome}</h3>
+                        <p>${pontosRota.descricao || "Descrição não disponível."}</p>
+                        <img src="${pontosRota.imagem || 'default_image_url.jpg'}" alt="${pontosRota.nome}" style="width: 100px; height: auto;">
+                    `);
                 });
-
-                // Gera a rota a partir da localização do usuário
-                const rotaCoords = [L.latLng(userCoords), ...pontosRota.map(ponto => L.latLng(ponto.coords[0], ponto.coords[1]))];
-                L.Routing.control({
-                    waypoints: rotaCoords,
-                    routeWhileDragging: true
-                }).addTo(map);
             });
         });
+
+        function iniciarRoteiro() {
+        // Esconde os botões Iniciar e Cancelar
+        document.getElementById('botao-iniciar').style.display = 'none';
+
+        // Exibe o primeiro ponto turístico
+        showPontoAtual();
+    }
+
+        function showPontoAtual() {
+            if (pontoAtualIndex >= pontosRota.length) {
+                alert("Você completou o roteiro!");
+                document.getElementById("info-ponto").style.display = 'none'; // Oculta as informações
+                limparPontosTuristicos();
+                // Redireciona para a página de conclusão (exemplo)
+                return;
+            }
+
+            const pontoAtual = pontosRota[pontoAtualIndex];
+            document.getElementById("ponto-nome").textContent = pontoAtual.nome;
+            document.getElementById("ponto-descricao").textContent = pontoAtual.descricao || "Descrição indisponível.";
+            document.getElementById("ponto-atividades").innerHTML = "<strong>Atividades:</strong> " + (pontoAtual.atividades || "Atividades não informadas.");
+            document.getElementById("info-ponto").style.display = 'block';
+
+            // Adiciona marcador do ponto atual
+            L.marker([pontoAtual.coords[0], pontoAtual.coords[1]]).addTo(mapa)
+                .bindPopup(`<h3>${pontoAtual.nome}</h3><p>${pontoAtual.descricao || "Descrição indisponível."}</p>`);
+
+            // Gera a rota até o ponto atual
+            const rotaCoords = [L.latLng(userCoords), L.latLng(pontoAtual.coords[0], pontoAtual.coords[1])];
+            L.Routing.control({
+                waypoints: rotaCoords,
+                routeWhileDragging: true
+            }).addTo(mapa);
+        }
+
+        function concluirPonto() {
+            pontoAtualIndex++;
+
+            // Verifica se há mais pontos
+            if (pontoAtualIndex < pontosRota.length) {
+                // Se houver, atualiza o mapa para mostrar o próximo ponto
+                showPontoAtual();
+            } else {
+                // Caso contrário, avisa que o roteiro foi completado
+                alert("Você completou o roteiro!");
+                document.getElementById("info-ponto").style.display = 'none'; // Oculta as informações
+                limparPontosTuristicos();
+            }
+        }
+
+        function cancelarPonto() {
+            pontoAtualIndex++;
+
+            // Verifica se há mais pontos
+            if (pontoAtualIndex < pontosRota.length) {
+                // Se houver, atualiza o mapa para mostrar o próximo ponto
+                showPontoAtual();
+            } else {
+                // Caso contrário, avisa que o roteiro foi completado
+                alert("Você completou o roteiro!");
+                document.getElementById("info-ponto").style.display = 'none'; // Oculta as informações
+                limparPontosTuristicos();
+            }
+        }
+
+        function limparPontosTuristicos() {
+            // Limpa os pontos do localStorage
+            localStorage.removeItem('pontosRota');
+
+            // Atualiza a lista em memória
+            pontosRota = [];
+
+            // Exibe uma mensagem de confirmação
+            alert('Todos os pontos turísticos foram removidos.');
+
+            // Atualiza a interface (se necessário)
+            location.reload(); // Recarrega a página para resetar o mapa e a interface
+        }
+
+        function salvarHistorico() {
+            // Converte os dados de pontosRota para JSON
+            const pontosRotaJson = JSON.stringify(pontosRota);
+
+            // Pega o token CSRF
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            // Envia os dados para o servidor via POST
+            fetch("{% url 'salvar_historico_pontos' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Indica que o conteúdo enviado é JSON
+                    "X-CSRFToken": csrfToken // Passando o token CSRF corretamente  
+                },
+                body: pontosRotaJson // Envia os dados no corpo da requisição
+            })
+            .then(response => {
+                // Verifica se a resposta é OK (status HTTP 200)
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição: ${response.statusText}`);
+                }
+                return response.json(); // Se OK, converte para JSON
+            })
+            .then(data => {
+                // Verifica a resposta do servidor
+                if (data.status === 'success') {
+                    alert('Histórico salvo com sucesso!');
+                } else {
+                    alert('Erro ao salvar histórico: ' + data.message);
+                }
+            })
+            .catch(error => {
+                // Se ocorrer um erro, exibe a mensagem de erro
+                alert('Erro ao enviar dados para o servidor: ' + error.message);
+            });
+        }
+
     </script>
 
     <!-- Lista de visitas -->
     <div id="lista-visitas">
-        {% for ponto in pontosRota %}
+        {% for ponto in pontos %}
         <div class="visitas">
             <div class="ico-loc">
                 <img src="{% static "rotas/img/icone-loc.png" %}" alt="Ícone de Localização">
@@ -62,22 +199,9 @@
                     </a>
                     <p>{{ ponto.descricao|default:"Distância não calculada" }}</p>
                 </div>
-                <div class="buttons-detalhes">
-                    <button class="concluir">Visitado</button>
-                    <button class="cancelar">Cancelar</button>
-                </div>
             </div>
         </div>
         {% endfor %}
-    </div>
-
-    <div class="buttons">
-        <button class="concluir">   
-            Concluir
-        </button>
-        <button class="cancelar">
-            Cancelar
-        </button>
     </div>
 </section>
 

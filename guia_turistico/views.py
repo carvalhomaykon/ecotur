@@ -24,8 +24,11 @@ def carregar_dados_pontos_turisticos():
                 'Preço': item.get('preco'),
                 'Horario': item.get('horario'),
                 'Idiomas': item.get('idiomas'),
+                'id': item.get('id'),
+                'whatsapp': item.get('whatsapp'),
+                'imagem': item.get('imagem'),
             }
-            pontos.append(ponto)
+            pontos.append(ponto)    
     except FileNotFoundError:
         # Caso o arquivo JSON não seja encontrado, ambos os arrays são mantidos vazios
         pass
@@ -44,7 +47,10 @@ def guia_turistico(request):
         'nome_do_escopo': 'guia_turistico',
         'exibir_botao': True,
         'nome_botao': 'Entrar em Contato',
+        'frase_login': 'Realize login para entrar em contato.',
         'botao_click': False,
+        'card_rota': False,
+        'nome_detalhe': 'detalhe_guia_turistico',
         'pontos': pontos,
     }
 

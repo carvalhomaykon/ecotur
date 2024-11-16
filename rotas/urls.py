@@ -7,4 +7,5 @@ urlpatterns = [
     path('historico-rota', views.historico_rota, name='historico_rota'),
     path('avaliar-rota', views.avaliar_rota, name='avaliar_rota'),
     path('adicionar-rota/', views.adicionar_rota, name='adicionar_rota'),
+    path('salvar_historico_pontos/', views.salvar_historico_pontos, name='salvar_historico_pontos'),
 ]

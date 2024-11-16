@@ -1,3 +1,16 @@
 .usuario{
-    background-color: red;
-}   
+    background-color: rgb(136, 136, 136);
+    width: 20%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.usuario img{
+    height: 30px;
+}
+
+.pontos{
+    font-size: 20px;
+}

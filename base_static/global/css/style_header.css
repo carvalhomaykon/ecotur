@@ -295,5 +295,19 @@ h1{
     .mobile-menu.open {
         display: block; /* O menu aparece quando tem a classe 'open' */
     }
-    
+
+    .mobile-menu .entrar {
+        display: block;
+        text-align: center;
+        margin-left: 30px;
+    }
+    .mobile-menu .entrar button {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .menu-rotas.active .dropdown-content {
+        display: block;
+        position: static;
+    }
 }

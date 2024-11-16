@@ -26,7 +26,9 @@ def carregar_dados_pontos_turisticos():
                 'Distância': item['distancia'],
                 'Tipo': item['tipo'],
                 'Popularidade': item['popularidade'],
-                'coords': item['coords']
+                'coords': item['coords'],
+                'imagem': item['imagem'],
+                'id': item['id'],
             }
 
             pontos.append(ponto)
@@ -54,8 +56,11 @@ def rotas(request):
         'exibir_botao': True,
         'botao_click': True,
         'nome_botao': 'Adicionar à Rota',  # ou outro texto para o botão
+        'frase_login': 'Realize login para adicionar à rota.',
         'pontos': pontos,
         'pontos_completos': pontos_completos,
+        'card_rota': True,
+        'nome_detalhe': 'detalhes_ponto_turistico',
         #'endereco_detalhe': endereco_detalhe
     }
 
@@ -65,15 +70,19 @@ def rotas(request):
 def minha_rota(request):
     print("Minha Rota")
 
+    pontos, _ = carregar_dados_pontos_turisticos()
+
     context = {
         'nome_da_pagina': 'Minha Rota',
         'nome_do_app': 'minha_rota',
         'nome_do_escopo': 'rotas',
+        'pontos': pontos,
     }
 
     return render(request, 'rotas/minha_rota.html', context)
 
 def historico_rota(request):
+    
     print("Histórico Rota")
 
     context = {
@@ -84,8 +93,31 @@ def historico_rota(request):
 
     return render(request, 'rotas/historico_rota.html', context)
 
+# Função para salvar dados no arquivo JSON
+def salvar_historico_pontos(request):
+    if request.method == "POST":
+        # Captura os dados JSON diretamente do corpo da requisição
+        try:
+            dados = json.loads(request.body)  # Carrega o JSON enviado no corpo da requisição
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Dados inválidos"}, status=400)
+        
+        # Aqui você pode salvar os dados no arquivo JSON ou banco de dados
+        try:
+            # Salvando os dados no arquivo JSON
+            with open('pontos_roteiro.json', 'w') as f:
+                json.dump(dados, f)
+                
+            return JsonResponse({"message": "Dados salvos com sucesso!"})
+        
+        except Exception as e:
+            return JsonResponse({"error": f"Ocorreu um erro ao salvar os dados: {str(e)}"}, status=500)
+    
+    return JsonResponse({"error": "Método não permitido"}, status=405)
+
 def avaliar_rota(request):
 
+    
     print("Avaliar Rota")
 
     '''

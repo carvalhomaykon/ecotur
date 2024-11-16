@@ -12,7 +12,7 @@
         "whatsapp": "https://wa.me/5591987286703",
         "instagram": "@belezasbelim",
         "facebook": "https://www.facebook.com/belezasbelim",
-        "imagem": "belezas-natural-de-belim.png",
+        "imagem": "global/img/mangal-das-garças.png",
         "descricao_detalhada": "O Belém é um dos melhores lugares para visitar no Brasil, com uma vasta paisagem natural, rios e lagos, montanhosas e praias.",
         "descricao_guia": "Sou um guia formado em turismo com mais de 4 anos de experiência.",
         "duracao": "4 horas",
@@ -33,8 +33,8 @@
         ]
     },
     {
-        "id": "1",
-        "nome": "Ciltura",
+        "id": "2",
+        "nome": "Cultura",
         "descricao": "Lugar Bonito",
         "nome_guia": "Fulano da Silva",
         "preco": "R$ 550,00",
@@ -45,7 +45,7 @@
         "whatsapp": "https://wa.me/5591987286703",
         "instagram": "@belezasbelim",
         "facebook": "https://www.facebook.com/belezasbelim",
-        "imagem": "belezas-natural-de-belim.png",
+        "imagem": "global/img/mercado-ver-o-peso.png",
         "descricao_detalhada": "O Belém é um dos melhores lugares para visitar no Brasil, com uma vasta paisagem natural, rios e lagos, montanhosas e praias.",
         "descricao_guia": "Sou um guia formado em turismo com mais de 4 anos de experiência.",
         "duracao": "4 horas",
