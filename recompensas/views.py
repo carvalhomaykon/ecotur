@@ -17,10 +17,13 @@ def carregar_dados_pontos_turisticos():
         for item in json_data:
             ponto = {
                 'nome': item['nome'],
-                'Tipo': item['tipo'],
-                'Preco': item['preco'],
+                'descrição': item['descricao'],
+                'tipo': item['tipo'],
+                'preço': item['preco'],
                 'id': item['id'],
                 'imagem': item['imagem'],
+                'produção': item['producao'],
+                'local_retirada': item['local_retirada']
             }
 
             pontos.append(ponto)
@@ -57,6 +60,7 @@ def resgate_recompensas(request):
         'nome_do_escopo': 'recompensas',
         'exibir_botao': True,
         'nome_botao': 'Resgatar',
+        'frase_login': 'Realize login para resgatar',
         'pontos': pontos,
         'nome_detalhe': 'detalhe_recompensa'
     }
@@ -82,7 +86,7 @@ def detalhe_recompensa(request, id):
         'nome_da_pagina': 'Detalhe da Recompensa',
         'nome_do_app': 'detalhe_recompensa',
         'nome_do_escopo': 'detalhe_recompensa',
-        'pontos': pontos
+        'ponto': pontos
     }
 
     return render(

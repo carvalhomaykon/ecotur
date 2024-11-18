@@ -66,7 +66,7 @@ def detalhes_ponto_turistico(request, id):
     context = {
         'nome_da_pagina': 'Detalhe Ponto Turístico',
         'nome_do_app': 'detalhes_ponto_turistico',
-        'nome_do_escopo': 'pontos_turistico',
+        'nome_do_escopo': 'pontos_turisticos',
         'ponto': ponto
     }
     return render(request, 'pontos_turisticos/detalhes_ponto.html', context)

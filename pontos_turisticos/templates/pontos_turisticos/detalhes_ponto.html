@@ -3,21 +3,27 @@
 
 <section>
     <!-- Título e informações principais -->
-    <div>
-        <h1>{{ ponto.nome }}</h1>
-        <p>Endereço: {{ ponto.endereco }}</p>
-        <p>Horário: {{ ponto.horario }}</p>
-        <p>Preço: {{ ponto.preco }}</p>
+    <h1>{{ ponto.nome }}</h1>
+    <div class="propaganda">
+        <img src="{% static ponto.imagem %}" alt="Imagem {{ ponto.nome }}">
+    </div>
+
+    <div class="detalhes">
+        <ul>
+            <li><p>Endereço: {{ ponto.endereco }}</p></li>
+            <li><p>Horário: {{ ponto.horario }}</p></li>
+            <li><p>Preço: {{ ponto.preco }}</p></li>
+        </ul>     
     </div>
 
     <!-- História e Curiosidades -->
-    <div>
+    <div class="historia">
         <h2>História e Curiosidades</h2>
         <p>{{ ponto.historia }}</p>
     </div>
 
     <!-- Galeria de Imagens -->
-    <div>
+    <div class="galeria-imagens">
         <h2>Galeria de Imagens</h2>
         <ul>
             {% for imagem in ponto.imagens %}
@@ -31,7 +37,7 @@
     </div>
 
     <!-- Atividades e Atrações -->
-    <div>
+    <div class="atividades">
         <h2>Atividades e Atrações</h2>
         <ul>
             {% for atividade in ponto.atividades %}
@@ -43,28 +49,31 @@
     </div>
 
     <!-- Endereço e Contatos -->
-    <div>
+    <div class="enderecos">
         <h2>Endereço e Contatos</h2>
-        <ul>
-            <li>Endereço: <a href="https://maps.google.com/?q={{ ponto.endereco|urlencode }}" target="_blank">{{ ponto.endereco }}</a></li>
-            <li>
-                <div>
-                    <img src="{% static 'pontos_turisticos/img/instagram_logo.png' %}" alt="Logo Instagram">
-                </div>
-                <p>{{ ponto.instagram }}</p>
-            </li>
-            <li>
-                <div>
-                    <img src="{% static 'pontos_turisticos/img/telefone_logo.png' %}" alt="Logo Telefone">
-                </div>
-                <p>{{ ponto.telefone }}</p>
-            </li>
-        </ul>
+        Endereço: <a href="https://maps.google.com/?q={{ ponto.endereco|urlencode }}" target="_blank">{{ ponto.endereco }}</a>
+        <div class="contatos">
+            <div class="link-contato">
+                <img src="{% static 'global/img/logo-instagram.png' %}" alt="Icone Instagram">
+                <p><a href="https://www.instagram.com/{{ ponto.instagram }}">{{ ponto.instagram }}</a></p>
+            </div>
+            <div class="link-contato">
+                <img src="{% static 'global/img/logo-facebook.png' %}" alt="Icone Facebook">
+                <p><a href="{{ ponto.facebook|default:'#' }}">@facebook</a></p> <!-- Adicionar campo no JSON se necessário -->
+            </div>
+            <div class="link-contato">
+                <img src="{% static 'global/img/whatsapp-logo.png' %}" alt="Icone WhatsApp">
+                <p><a href="{{ ponto.whatsapp }}">WhatsApp</a></p>
+            </div>
+        </div>
     </div>
 
     <!-- Comentários -->
-    <div>
+    <div class="comentario">
         <h2>Comentários</h2>
+        <div class="button-avaliacao">
+            <button><a href="#"><b>Faça sua Avaliação</b></a></button>
+        </div>
         <ul>
             {% for comentario in ponto.comentarios %}
                 <li>
@@ -77,19 +86,24 @@
     </div>
 
     <!-- Botão para adicionar à rota -->
-    <div>
-        <button onclick="adicionarRota({{ ponto.id }})">
-            Adicionar à Rota
-        </button>
-    </div>
+    {% if request.user.is_authenticated %}
+        <div class="button-rota">
+            <button 
+                class="adicionar-rota" 
+                data-ponto-nome="{{ ponto.nome }}" 
+                onclick="adicionarRota('{{ ponto.nome }}', '{{ ponto.coords|safe }}', '{{ user.username }}')">
+                Adicionar à Rota
+            </button>
+        </div>
+    {% else %}
+        <div class="button-rota">
+            <button class="adicionar-rota">
+                <a href="{% url 'login' %}"> Faça login para adicionar a rota </a>
+            </button>
+        </div>
+    {% endif %}
 </section>
 
 {% include "global/partials/_footer.html" %}
 
-<script>
-    // Função para adicionar o ponto turístico à rota
-    function adicionarRota(id) {
-        // Aqui você pode adicionar a lógica para salvar o ponto turístico na rota do usuário
-        alert('Ponto turístico adicionado à rota!');
-    }
-</script>
+<script src="{% static 'global/js/adicionar_rota.js' %}"></script>

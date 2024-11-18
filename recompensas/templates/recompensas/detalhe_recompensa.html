@@ -1,3 +1,40 @@
-{% include "global/partials/avaliacao/_header_avaliacao.html" %}
+{% load static %}
 
-<p> {{ ponto.nome }} </p>
+{% include "global/partials/_header.html" %}
+
+    <section>
+        <!-- Título e informações principais -->
+        <h1>{{ ponto.nome }}</h1>
+        <div class="propaganda">
+            <img src="{% static ponto.imagem %}" alt="Imagem {{ ponto.nome }}">
+        </div>
+
+        <div class="detalhes">
+            <ul>
+                <li><p>Descrição: {{ ponto.descrição }}</p></li>
+                <li><p>Tipo: {{ ponto.tipo }}</p></li>
+                <li><p>Preço: {{ ponto.preço }}</p></li>
+                <li><p>Produção: {{ ponto.produção }}</p></li>
+            </ul>     
+        </div>
+
+        <div class="detalhes"> 
+            <h3> Local Retirada: {{ ponto.local_retirada }} </h3>
+        </div>
+
+        {% if request.user.is_authenticated %}
+            <div class="button-rota">
+                <button class="adicionar-rota">
+                    Resgatar
+                </button>
+            </div>
+        {% else %}
+            <div class="button-rota">
+                <button class="adicionar-rota">
+                    <a href="{% url 'login' %}"> Faça login para adicionar a rota </a>
+                </button>
+            </div>
+        {% endif %}
+    </section>
+
+{% include "global/partials/_footer.html" %}

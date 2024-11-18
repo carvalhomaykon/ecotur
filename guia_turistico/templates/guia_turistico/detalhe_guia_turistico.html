@@ -41,17 +41,22 @@
     <h2>Contatos</h2>
     <div class="contatos">
         <div class="link-contato">
-            <img src="{% static 'global/img/instagram_icon.png' %}" alt="Icone Instagram">
+            <img src="{% static 'global/img/logo-instagram.png' %}" alt="Icone Instagram">
             <p><a href="https://www.instagram.com/{{ ponto.instagram }}">{{ ponto.instagram }}</a></p>
         </div>
         <div class="link-contato">
-            <img src="{% static 'global/img/facebook_icon.png' %}" alt="Icone Facebook">
+            <img src="{% static 'global/img/logo-facebook.png' %}" alt="Icone Facebook">
             <p><a href="{{ ponto.facebook|default:'#' }}">@facebook</a></p> <!-- Adicionar campo no JSON se necessário -->
         </div>
         <div class="link-contato">
-            <img src="{% static 'global/img/whatsapp_icon.png' %}" alt="Icone WhatsApp">
+            <img src="{% static 'global/img/whatsapp-logo.png' %}" alt="Icone WhatsApp">
             <p><a href="{{ ponto.whatsapp }}">WhatsApp</a></p>
         </div>
+    </div>
+
+    <h2>Avaliação</h2>
+    <div class="button-avaliacao">
+        <button><a href="#"><b>Faça sua Avaliação</b></a></button>
     </div>
 
     <div class="button-contato">

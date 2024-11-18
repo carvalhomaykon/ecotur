@@ -25,9 +25,18 @@ h2{
     margin-left: 30px;
 }
 
+.sobre-guia img{
+    height: 25px;
+    gap: 10px;
+}
+
 .user{
     display: flex;
-    gap: 30px;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    width: 20%;
 }
 
 .roteiro ul, a{
@@ -42,12 +51,18 @@ h2{
 .contatos{
     margin-left: 30px;
     margin-bottom: 30px;
-    gap: 30px;
+    gap: 80px;
+    display: flex;
+    justify-content: left;
 }
-
 .link-contato{
+    align-items: center;
     display: flex;
     margin-bottom: 10px;
+}
+
+.contatos img{
+    height: 40px;
 }
 
 .button-contato{
@@ -76,14 +91,60 @@ h2{
     color: white;
 }
 
+.button-avaliacao{
+    text-align: left;
+}
+
+.button-avaliacao button{
+    margin-bottom: 10px;
+    width: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 10px;
+}
+
+.button-avaliacao button:hover {
+    background-color: #388e3c;
+}
+
+.button-avaliacao a{
+    text-decoration: none;
+    color: white;
+}
+
 @media (max-width: 1030px) {
     .button-contato button{
         width: 100%;
+    }
+
+    .button-avaliacao button{
+        width: 30%;
+    }
+
+    .contatos{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
 @media (max-width: 1024) {    
     .button-contato button{
         width: 80%;
+    }
+
+    .button-avaliacao button{
+        width: 50%;
+    }
+
+    .contatos{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }

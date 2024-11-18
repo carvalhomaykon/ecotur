@@ -1,0 +1,134 @@
+.propaganda img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 230px;
+    border-radius: 5px;
+}
+
+ul{
+    text-decoration: none;
+    display: block;
+    margin-left: 30px;
+}
+
+.detalhes ul{
+    list-style: none;
+}
+
+.historia p{
+    margin-left: 30px;
+}
+
+h2{
+    text-align: left;
+    color: #2e7d32;
+    text-decoration: underline;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.enderecos a{
+    color: black;
+}
+
+.contatos{
+    margin-left: 30px;
+    margin-bottom: 30px;
+    gap: 80px;
+    display: flex;
+    justify-content: left;
+}
+.link-contato{
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.contatos img{
+    height: 40px;
+}
+
+.button-rota{
+    text-align: center;
+}
+
+.button-rota button{
+    margin-top: 30px;
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+}
+
+.button-rota button:hover {
+    background-color: #388e3c;
+}
+
+.button-rota a{
+    text-decoration: none;
+    color: white;
+}
+
+.button-avaliacao{
+    text-align: left;
+}
+
+.button-avaliacao button{
+    margin-bottom: 10px;
+    width: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 10px;
+}
+
+.button-avaliacao button:hover {
+    background-color: #388e3c;
+}
+
+.button-avaliacao a{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 1030px) {
+    .button-rota button{
+        width: 100%;
+    }
+
+    .button-avaliacao button{
+        width: 30%;
+    }
+
+    .contatos{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1024) {    
+    .button-rota button{
+        width: 80%;
+    }
+
+    .button-avaliacao button{
+        width: 50%;
+    }
+
+    .contatos{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
