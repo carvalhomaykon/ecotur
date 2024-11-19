@@ -9,7 +9,7 @@
             <h3>{{ ponto.nome }}</h3>
             <ul>
                 {% for chave, valor in ponto.items %}
-                    {% if chave != "coords" and chave != "whatsapp" and chave != "id" and chave != "imagem" and chave != "local_retirada" %}
+                    {% if chave != "coords" and chave != "whatsapp" and chave != "id" and chave != "imagem" %}
                         <li><strong>{{ chave|capfirst }}:</strong> {{ valor }}</li>
                     {% endif %}
                 {% endfor %}

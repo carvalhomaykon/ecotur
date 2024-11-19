@@ -23,7 +23,7 @@ def carregar_dados_pontos_turisticos():
                 'id': item['id'],
                 'imagem': item['imagem'],
                 'produção': item['producao'],
-                'local_retirada': item['local_retirada']
+                'local Retirada': item['local_retirada']
             }
 
             pontos.append(ponto)
@@ -71,6 +71,7 @@ def resgate_recompensas(request):
     )
 
 def detalhe_recompensa(request, id):
+
     print('Detalhe da Recompensa')
 
     pontos = carregar_dados_pontos_turisticos()
@@ -85,11 +86,25 @@ def detalhe_recompensa(request, id):
     context = {
         'nome_da_pagina': 'Detalhe da Recompensa',
         'nome_do_app': 'detalhe_recompensa',
-        'nome_do_escopo': 'detalhe_recompensa',
+        'nome_do_escopo': 'recompensas',
         'ponto': pontos
     }
 
     return render(
         request,
         'recompensas/detalhe_recompensa.html', context
+    )
+
+def inicial_sem_login(request):
+    print ("Página Inicial Recompensas Sem Login")
+    
+    context = {
+        'nome_da_pagina': 'Página Inicial',
+        'nome_do_app': 'inicial_sem_login', 
+        'nome_do_escopo': 'recompensas',
+    }
+
+    return render(
+        request,
+        'recompensas/inicial_sem_login.html', context
     )

@@ -55,9 +55,11 @@
     </div>
 
     <h2>Avaliação</h2>
-    <div class="button-avaliacao">
-        <button><a href="#"><b>Faça sua Avaliação</b></a></button>
-    </div>
+    <a href="{% url "avaliacao_guia" id=ponto.id %}">
+        <div class="button-avaliacao">
+            <button id="open-modal"><b>Faça sua Avaliação</b></button>
+        </div>
+    </a>
 
     <div class="button-contato">
         <button><a href="{{ ponto.whatsapp }}"><b>Entrar em Contato</b></a></button>

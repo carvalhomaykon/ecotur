@@ -3,11 +3,14 @@
     align-items: center;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
     width: 100%;
     max-width: 600px;
+    border-top: 2px solid #4caf50; /* Linha acima */
+    border-bottom: 2px solid #4caf50; /* Linha abaixo */
+    border-radius: 8px; /* Bordas arredondadas para o conteúdo */
 }
 
 .img-ponto-turistico {
@@ -69,8 +72,12 @@ button a{
     justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media screen and (max-width: 1024px){
     .card {
-        flex-direction: row; /* Fica lado a lado apenas em telas maiores */
+        font-size: 10px;
+    }
+
+    .adicionar-rota{
+        font-size: 8px;
     }
 }

@@ -83,3 +83,18 @@ def detalhe_guia_turistico(request, id):
         request,
         'guia_turistico/detalhe_guia_turistico.html', context
     )
+
+def avaliacao_guia(request, id):
+    print ("Avaliacao Guia Turistico")
+
+    context = {
+        'nome_da_pagina': 'Avaliação Guia',
+        'nome_do_app': 'avaliacao_guia',
+        'nome_do_escopo': 'guia_turistico',
+        'ponto': id
+    }
+
+    return render(
+        request,
+        'guia_turistico/avaliacao_guia.html', context
+    )

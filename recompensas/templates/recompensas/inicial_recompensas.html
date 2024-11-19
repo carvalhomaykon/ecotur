@@ -3,45 +3,60 @@
 {% include "global/partials/_header.html" %}
 
     <section>
-        <h1>Suas Recompensas Ecológicas</h1>
-
-        <div class="usuario">
-            <div>
-                <img src="{% static "global/img/icone_user.png" %}" alt="Icone Usuário">
+        <h1>Recompensas Ecológicas</h1>
+        {% if request.user.is_authenticated %}
+            <div class="usuario">
+                <div>
+                    <img src="{% static "global/img/icone_user.png" %}" alt="Icone Usuário">
+                </div>
+                <div>
+                    {{user.username}}
+                </div>
             </div>
-            <div>
-                {{user.username}}
+
+            <div class="frase-inicial">
+                <p>Parabéns, {{user.username}}! Você possui <span>xxx</span> pontos pelas práticas ecológicas.</p>
             </div>
-        </div>
 
-        <div class="frase-inicial">
-            <p>Parabéns, {{user.username}}! Você possui <span>xxx</span> pontos pelas práticas ecológicas.</p>
-        </div>
+            <div class="historico-acoes">
+                <h2>Histórico de Ações Ecológicas</h2>
+                <ul>
+                    <li>Ação Ecológica - Data - Pontos</li>
+                    <li>Reciclou 2 garrafas pets - 18/11/2024 - 17 pontos</li>
+                </ul>
+            </div>
 
-        <div class="historico-acoes">
-            <h2>Histórico de Ações Ecológicas</h2>
-            <ul>
-                <li>Ação Ecológica - Data - Pontos</li>
-                <li>Reciclou 2 garrafas pets - 18/11/2024 - 17 pontos</li>
-            </ul>
-        </div>
+            <div class="missoes">
+                <h2>Missões Para Ganhar Pontos</h2>
+                <ul>
+                    <li>Separe seu lixo por material - Quantidade de Pontos;</li>
+                    <li>Ande de ônibus duas vezes na semana - Quantidade de Pontos;</li>
+                    <li>Recicle dois objetos encontrados na rua - Quantidade de Pontos;</li>
+                </ul>
+            </div>
 
-        <div class="missoes">
-            <h2>Missões Para Ganhar Pontos</h2>
-            <ul>
-                <li>Separe seu lixo por material - Quantidade de Pontos;</li>
-                <li>Ande de ônibus duas vezes na semana - Quantidade de Pontos;</li>
-                <li>Recicle dois objetos encontrados na rua - Quantidade de Pontos;</li>
-            </ul>
-        </div>
-
-        <div class="button">
-            <a href="{% url "resgate_recompensas" %}">
-                <button >
-                    Resgatar
-                </button>
-            </a>
-        </div>
+            <div class="button">
+                <a href="{% url "resgate_recompensas" %}">
+                    <button >
+                        Resgatar
+                    </button>
+                </a>
+            </div>
+        {% else %}
+            <h3> Você não tem pontos, pois não está cadastrado no sistema. </h3>
+            <div class="sem_login">
+                <div class="button">
+                    <button class="adicionar-rota">
+                        <a href="{% url 'login' %}"> Faça Login Para Receber Seus Pontos </a>
+                    </button>
+                </div>
+                <div class="button">
+                    <button class="adicionar-rota">
+                        <a href="{% url "resgate_recompensas" %}"> Veja as Nossas Recompensas </a>
+                    </button>
+                </div>
+            </div>
+        {% endif %}
     </section>
 
 {% include "global/partials/_footer.html" %}

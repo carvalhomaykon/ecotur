@@ -55,12 +55,19 @@
             </div>
         </div>   
         
-        <div class="button-footer">
-            <button>
-                {{ frase_confirmar }}
-                Frase para confirmar
-            </button>
-        </div> 
+        {% if request.user.is_authenticated %}
+            <div class="button-footer">
+                <button>
+                    Enviar
+                </button>
+            </div>
+        {% else %}
+            <div class="button-footer">
+                <button class="button-footer">
+                    <a href="{% url 'login' %}"> Faça seu Login Para Enviar </a>
+                </button>
+            </div>
+        {% endif %}
     </section>
 
 {% include "global/partials/_footer.html" %}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação do Roteiro</title>
+    <style>
+        /* Reset e estilo básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+        }
+        /* Logo escrito EcoTour */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .logo .eco {
+            color: #4caf50; /* Verde para "Eco" */
+        }
+        .logo .tour {
+            background-color: #4caf50; /* Fundo verde para "Tour" */
+            color: #fff; /* Cor branca para o texto "Tour" */
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h2 {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .close-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+            text-align: left; /* Alinha o título à esquerda */
+        }
+        .rating-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .rating-section:first-of-type {
+            border-top: none;
+        }
+        .stars {
+            display: flex;
+            gap: 5px;
+            flex-direction: row-reverse; /* Inverte a ordem das estrelas */
+        }
+        .stars input {
+            display: none;
+        }
+        .stars label {
+            font-size: 20px;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .stars input:checked ~ label,
+        .stars label:hover,
+        .stars label:hover ~ label {
+            color: #f9a825;
+        }
+        .comment-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 20px 0;
+            resize: vertical;
+            font-size: 14px;
+            color: #333;
+        }
+        .submit-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo EcoTour -->
+        <div class="logo">
+            <span class="eco">Eco</span><span class="tour">Tur</span>
+        </div>
+
+        <div class="header">
+            <h2>Como foi seu roteiro de viagens?</h2>
+            <span class="close-button">&times;</span>
+        </div>
+        
+        <!-- Avaliação Geral -->
+        <div class="section-title">No Geral</div>
+        <div class="rating-section">
+            <div class="stars" data-rating="general">
+                <input type="radio" id="general-star1" name="general-rating" value="1"><label for="general-star1">&#9733;</label>
+                <input type="radio" id="general-star2" name="general-rating" value="2"><label for="general-star2">&#9733;</label>
+                <input type="radio" id="general-star3" name="general-rating" value="3"><label for="general-star3">&#9733;</label>
+                <input type="radio" id="general-star4" name="general-rating" value="4"><label for="general-star4">&#9733;</label>
+                <input type="radio" id="general-star5" name="general-rating" value="5"><label for="general-star5">&#9733;</label>
+            </div>
+        </div>
+
+        <!-- Avaliação do Ponto Turístico -->
+        <div class="section-title">Ponto Turístico Visitado</div>
+        <div class="rating-section">
+            <div class="stars" data-rating="point">
+                <input type="radio" id="point-star1" name="point-rating" value="1"><label for="point-star1">&#9733;</label>
+                <input type="radio" id="point-star2" name="point-rating" value="2"><label for="point-star2">&#9733;</label>
+                <input type="radio" id="point-star3" name="point-rating" value="3"><label for="point-star3">&#9733;</label>
+                <input type="radio" id="point-star4" name="point-rating" value="4"><label for="point-star4">&#9733;</label>
+                <input type="radio" id="point-star5" name="point-rating" value="5"><label for="point-star5">&#9733;</label>
+            </div>
+        </div>
+        
+        <!-- Avaliação do Guia Turístico -->
+        <div class="section-title">Guia Turístico</div>
+        <div class="rating-section">
+            <div class="stars" data-rating="guide">
+                <input type="radio" id="guide-star1" name="guide-rating" value="1"><label for="guide-star1">&#9733;</label>
+                <input type="radio" id="guide-star2" name="guide-rating" value="2"><label for="guide-star2">&#9733;</label>
+                <input type="radio" id="guide-star3" name="guide-rating" value="3"><label for="guide-star3">&#9733;</label>
+                <input type="radio" id="guide-star4" name="guide-rating" value="4"><label for="guide-star4">&#9733;</label>
+                <input type="radio" id="guide-star5" name="guide-rating" value="5"><label for="guide-star5">&#9733;</label>
+            </div>
+        </div>
+
+        <!-- Avaliação da Rota -->
+        <div class="section-title">Rota</div>
+        <div class="rating-section">
+            <div class="stars" data-rating="route">
+                <input type="radio" id="route-star1" name="route-rating" value="1"><label for="route-star1">&#9733;</label>
+                <input type="radio" id="route-star2" name="route-rating" value="2"><label for="route-star2">&#9733;</label>
+                <input type="radio" id="route-star3" name="route-rating" value="3"><label for="route-star3">&#9733;</label>
+                <input type="radio" id="route-star4" name="route-rating" value="4"><label for="route-star4">&#9733;</label>
+                <input type="radio" id="route-star5" name="route-rating" value="5"><label for="route-star5">&#9733;</label>
+            </div>
+        </div>
+
+        <!-- Caixa de Comentário -->
+        <textarea class="comment-box" rows="4" placeholder="Deixe um comentário..."></textarea>
+
+        <!-- Botão de Envio -->
+        <button class="submit-button">Enviar</button>
+    </div>
+
+    <script>
+        // Seleciona o modal e botões
+        const modal = document.getElementById('evaluationModal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        // Abre o modal ao clicar no botão "Avaliar"
+        openModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        // Fecha o modal ao clicar no botão de fechar
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Fecha o modal ao clicar fora do conteúdo
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

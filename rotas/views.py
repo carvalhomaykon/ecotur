@@ -70,13 +70,14 @@ def rotas(request):
 def minha_rota(request):
     print("Minha Rota")
 
-    pontos, _ = carregar_dados_pontos_turisticos()
+    _, pontos_completo = carregar_dados_pontos_turisticos()
+    ponto = pontos_completo
 
     context = {
         'nome_da_pagina': 'Minha Rota',
         'nome_do_app': 'minha_rota',
         'nome_do_escopo': 'rotas',
-        'pontos': pontos,
+        'pontos': ponto,
     }
 
     return render(request, 'rotas/minha_rota.html', context)

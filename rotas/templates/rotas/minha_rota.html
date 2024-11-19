@@ -58,7 +58,7 @@
                 // Adiciona os pontos turísticos no mapa com popups
                 pontosRota.forEach(pontosRota => {
                     const marker = L.marker([pontosRota.coords[0], pontosRota.coords[1]]).addTo(mapa);
-                    marker.bindPopup(`
+                    marker.bindPopup(`  
                         <h3>${pontosRota.nome}</h3>
                         <p>${pontosRota.descricao || "Descrição não disponível."}</p>
                         <img src="${pontosRota.imagem || 'default_image_url.jpg'}" alt="${pontosRota.nome}" style="width: 100px; height: auto;">
@@ -187,20 +187,19 @@
 
     <!-- Lista de visitas -->
     <div id="lista-visitas">
-        {% for ponto in pontos %}
-        <div class="visitas">
-            <div class="ico-loc">
-                <img src="{% static "rotas/img/icone-loc.png" %}" alt="Ícone de Localização">
-            </div>
-            <div class="infor">
-                <div class="detalhes">
-                    <a href="#">
-                        <h3>{{ ponto.nome }}</h3>
-                    </a>
-                    <p>{{ ponto.descricao|default:"Distância não calculada" }}</p>
+        {% for ponto in pontosRota %}
+            <div class="visitas">
+                <div class="ico-loc">
+                    <img src="{% static "rotas/img/icone-loc.png" %}" alt="Ícone de Localização">
+                </div>
+                <div class="infor">
+                    <div class="detalhes">
+                        <a href="#">
+                            <h3>{{ ponto.nome }}</h3>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </section>
