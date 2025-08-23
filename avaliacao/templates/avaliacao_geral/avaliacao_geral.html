@@ -57,9 +57,11 @@
         
         {% if request.user.is_authenticated %}
             <div class="button-footer">
-                <button>
-                    Enviar
-                </button>
+                <a href="{% url "home" %}">
+                    <button>
+                        Enviar
+                    </button>
+                </a>
             </div>
         {% else %}
             <div class="button-footer">

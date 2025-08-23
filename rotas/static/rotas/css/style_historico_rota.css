@@ -1,3 +1,8 @@
+#map {
+    width: 100%;  /* Ocupa toda a largura disponível */
+    height: 200px; /* Defina uma altura para o mapa */
+}
+
 .rota-recente{
     margin: 20px 0;
     padding: 20px;
@@ -51,7 +56,7 @@ button{
 .buttons button{
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 200px;
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -80,4 +85,22 @@ button{
 
 .avaliar:hover{
     background-color: rgb(219, 60, 60);
+}
+
+p{
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1024px){
+    .buttons button{
+        width: 100%;
+        gap: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
 }

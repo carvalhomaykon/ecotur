@@ -235,6 +235,10 @@ h1{
 }
 
 @media screen and (max-width: 1024px){
+    .frase-bem-vindo{
+        color: #112611;
+    }
+
     .menu-2{
         display: none;
     }
@@ -309,5 +313,9 @@ h1{
     .menu-rotas.active .dropdown-content {
         display: block;
         position: static;
+    }
+
+    .usuario-logado{
+        display: none;
     }
 }

@@ -1,7 +1,7 @@
 let pontosRota = JSON.parse(localStorage.getItem('pontosRota')) || [];
 console.log("Pontos carregados do localStorage:", pontosRota);
 
-function adicionarRota(pontoNome, pontoCoords, username) {
+function adicionarRota(pontoNome, pontoCoords, username, pontoId) {
     if (!username) {
         alert('Você precisa estar logado para adicionar pontos à rota!');
         return;
@@ -22,7 +22,7 @@ function adicionarRota(pontoNome, pontoCoords, username) {
     const index = pontosRota.findIndex(p => p.nome === pontoNome && p.username === username);
 
     if (textoBotao === 'Adicionar à Rota' && index === -1) {
-        pontosRota.push({ nome: pontoNome, coords: pontoCoords, username: username });
+        pontosRota.push({ nome: pontoNome, coords: pontoCoords, username: username, id: pontoId });
         botao.innerHTML = 'Rota Adicionada';
         botao.style.backgroundColor = 'red';
         botao.style.color = 'white';

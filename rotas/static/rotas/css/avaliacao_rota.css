@@ -1,0 +1,22 @@
+.star-rating {
+    direction: rtl; /* Inverte a ordem dos elementos para fazer o efeito hover funcionar */
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .star-rating input[type="radio"] {
+    display: none;
+  }
+  
+  .star-rating label {
+    color: #ccc;
+    cursor: pointer;
+  }
+  
+  .star-rating label:hover,
+  .star-rating label:hover ~ label,
+  .star-rating input[type="radio"]:checked ~ label {
+    color: gold; /* Muda a cor para dourado ao passar o mouse ou selecionar */
+  }
+  

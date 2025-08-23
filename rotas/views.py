@@ -116,20 +116,20 @@ def salvar_historico_pontos(request):
     
     return JsonResponse({"error": "Método não permitido"}, status=405)
 
-def avaliar_rota(request):
+def avaliacao_rota(request):
+    print ("Avaliacao Rota Turistica")
 
-    
-    print("Avaliar Rota")
-
-    '''
     context = {
-        'nome_da_pagina': 'Avaliar Rota',
-        'nome_do_app': 'avaliar_rota',
+        'nome_da_pagina': 'Avaliação Rota Turistica',
+        'nome_do_app': 'avaliacao_rota',
         'nome_do_escopo': 'rotas',
+        'frase_pergunta': 'Como foi sua rota de viagens?',
     }
-    '''
 
-    return render(request, 'rotas/avaliar_rota.html')
+    return render(
+        request,
+        'rotas/avaliar_rota.html', context
+    )
 
 def adicionar_rota(request):
     if request.method == "POST":

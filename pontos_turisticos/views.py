@@ -37,7 +37,8 @@ def carregar_dados_pontos_turisticos():
 def pontos_turisticos(request):
     print('Pontos Turisticos')
 
-    pontos, _ = carregar_dados_pontos_turisticos()
+    _, pontos_completo = carregar_dados_pontos_turisticos()
+    pontos = pontos_completo
 
     context = {
         'nome_da_pagina': 'Pontos Turisticos',
@@ -70,3 +71,20 @@ def detalhes_ponto_turistico(request, id):
         'ponto': ponto
     }
     return render(request, 'pontos_turisticos/detalhes_ponto.html', context)
+
+def avaliacao_ponto(request, id):
+    print ("Avaliacao Guia Turistico")
+
+    context = {
+        'nome_da_pagina': 'Avaliação Ponto Turistico',
+        'nome_do_app': 'avaliacao_ponto',
+        'nome_do_escopo': 'pontos_turisticos',
+        'frase_pergunta': 'Como foi seu roteiro de viagens?',
+        'ponto': id,
+        'nome_detalhe': 'detalhes_ponto_turistico',
+    }
+
+    return render(
+        request,
+        'pontos_turisticos/avaliacao_ponto.html', context
+    )

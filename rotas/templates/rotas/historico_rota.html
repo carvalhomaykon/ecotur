@@ -5,34 +5,36 @@
         <h1>Pontos Visitados</h1>
         <div class="rota-recente">
             <div class="info-recente">
-                <img src="{% static "global/img/belem-inicio-c.png" %}" alt="Google Maps Trajeto">
-                <h3>Saída - Ponto Turistico Final</h3>
-                <p>Data de Inicio ° Horário - Data de termino ° Horário</p>
+                <div id="map"></div>
+                <script>
+                    // Inicializa o mapa e define a localização inicial
+                    const map = L.map('map').setView([-1.457953, -48.478489], 13); // Coordenadas de Belém, PA
+    
+                    // Adiciona a camada do OpenStreetMap
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map);
+    
+                    // Lista de pontos turísticos
+                </script>
+                
+                <h3>UFRA - Ver-o-Peso</h3>
+                <p>19/11/2024 ° 14:00h - 19/11/2024 ° 17:00h</p>
                 <div class="buttons">
-                    <button class="avaliar"> Avaliar </button>
                     <button class="refazer-rota"> Refazer Rota </button>
+                    <a href="{% url "avaliacao_rota"%}"><button class="avaliar"> Avaliar </button></a>  
                 </div>
             </div>
         </div>
 
         <div class="infor">
             <div>
-                <h3>Saída - Ponto Turistico Final</h3>
-                <p>Data de Inicio ° Horário - Data de termino ° Horário</p>
+                <h3>Ver-o-Peso - Mangal das Garças</h3>
+                <p> 18/11/2024 ° 08:00h - 18/11/2024 ° 12:00</p>
                 <div class="buttons">
-                    <button class="avaliar"> Avaliar </button>
                     <button class="refazer-rota"> Refazer Rota </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="infor">
-            <div>
-                <h3>Saída - Ponto Turistico Final</h3>
-                <p>Data de Inicio ° Horário - Data de termino ° Horário</p>
-                <div class="buttons">
-                    <button class="avaliar"> Avaliar </button>
-                    <button class="refazer-rota"> Refazer Rota </button>
+                    <a href="{% url "avaliacao_rota"%}"><button class="avaliar"> Avaliar </button></a>
                 </div>
             </div>
         </div>

@@ -1,14 +1,14 @@
 function menuShow() {
     let menuMobile = document.querySelector(".mobile-menu");
+    let button = document.querySelector(".mobile-menu-icon button");
+    let icon = document.querySelector(".icon");
 
     if (menuMobile.classList.contains("open")) {
         menuMobile.classList.remove("open");
-        document.querySelector('.icon').src = "../img/menu_white_36dp.svg";
-
-    } 
-    else {
+        icon.src = button.getAttribute("data-close-icon");
+    } else {
         menuMobile.classList.add("open");
-        document.querySelector('.icon').src = "../img/close_white_36dp.svg";
+        icon.src = button.getAttribute("data-open-icon");
     }
 }
 

@@ -22,7 +22,8 @@
                             {
                                 nome: "{{ ponto.nome }}", 
                                 coords: {{ ponto.coords }}, 
-                                descricao: "{{ ponto.descricao }}"
+                                descricao: "{{ ponto.descricao }}",
+                                imagem: "{{ ponto.imagem }}"
                             }{% if not forloop.last %},{% endif %}
                         {% endfor %}
                     {% else %}
@@ -37,7 +38,7 @@
                     marker.bindPopup(`
                         <h3>${ponto.nome}</h3>
                         <p>${ponto.descricao}</p>
-                        <img src="${ponto.imagem}" alt="Imagem ${ponto.nome}" style="width: 100px; height: auto;">
+                        <img src="{% static '' %}${ponto.imagem}" alt="Imagem ${ponto.nome}" style="width: 100px; height: auto;">
                     `);
                 });
 
@@ -121,6 +122,7 @@
 
         <div class="button-rota">
             <button onclick="prepararRota()"><a href="{% url 'minha_rota' %}">Gerar Rota</a></button>
+            <button onclick="prepararRota()" id="limpar"><a href="{% url 'minha_rota' %}">Limpar Rota</a></button>
         </div>
     </section>
 

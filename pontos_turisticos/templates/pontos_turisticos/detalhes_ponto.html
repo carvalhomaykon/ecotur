@@ -72,7 +72,7 @@
     <div class="comentario">
         <h2>Comentários</h2>
         <div class="button-avaliacao">
-            <button><a href="#"><b>Faça sua Avaliação</b></a></button>
+            <button><a href="{% url "avaliacao_ponto" id=ponto.id %}"><b>Faça sua Avaliação</b></a></button>
         </div>
         <ul>
             {% for comentario in ponto.comentarios %}

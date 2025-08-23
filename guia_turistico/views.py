@@ -76,7 +76,7 @@ def detalhe_guia_turistico(request, id):
         'nome_da_pagina': 'Detalhe Guia',
         'nome_do_app': 'detalhe_guia_turistico',
         'nome_do_escopo': 'guia_turistico',
-        'ponto': ponto
+        'ponto': ponto,
     }
 
     return render(
@@ -91,7 +91,9 @@ def avaliacao_guia(request, id):
         'nome_da_pagina': 'Avaliação Guia',
         'nome_do_app': 'avaliacao_guia',
         'nome_do_escopo': 'guia_turistico',
-        'ponto': id
+        'frase_pergunta': 'Como foi sua experiência com o guia?',
+        'ponto': id,
+        'nome_detalhe': 'detalhe_guia_turistico',
     }
 
     return render(

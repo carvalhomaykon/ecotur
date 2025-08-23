@@ -1,15 +1,21 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliação do Roteiro</title>
+    <title>{{ nome_da_pagina }}</title>
+    <link rel="shortcut icon" href="{% static "global/img/logo-ecotur.ico" %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <style>
         /* Reset e estilo básico */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Poppins, sans-serif;
         }
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +27,7 @@
             color: #333;
         }
         .container {
-            max-width: 400px;
+            max-width: 650px;
             width: 100%;
             padding: 20px;
         }
@@ -46,16 +52,31 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
         }
         .header h2 {
-            font-size: 20px;
+            font-size: 50px;
+            text-align: justify;
             font-weight: bold;
             text-align: center;
         }
         .close-button {
-            font-size: 24px;
+            font-size: 60px; /* Ajuste o tamanho da fonte */
             cursor: pointer;
+            margin-right: 10px; /* Adiciona espaço entre o botão e o restante */
+            color: #333; /* Cor neutra */
+            transition: color 0.3s; /* Efeito de transição ao passar o mouse */
+            margin-bottom: 50px;
         }
+        .close-button:hover {
+            color: #f44336; /* Cor de destaque ao passar o mouse */
+        }
+
+        .botao-fechar{
+            margin-bottom: 20px;
+        }
+
         .section-title {
             font-size: 16px;
             font-weight: bold;
@@ -116,18 +137,34 @@
         .submit-button:hover {
             background-color: #388e3c;
         }
+
+        @media screen and (max-width: 1024px){
+            .header h2 {
+                font-size: 40px;
+            }
+        }
+        
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Logo EcoTour -->
-        <div class="logo">
-            <span class="eco">Eco</span><span class="tour">Tur</span>
-        </div>
+        {% if nome_do_escopo == "rotas" %}
+            <div class="botao-fechar">
+                <a href="{% url "historico_rota" %}" class="logo">
+                    <span class="close-button">&times;</span>
+                </a>
+            </div>
+        {% else %}
+            <div class="botao-fechar">
+                <a href="{% url nome_detalhe id=ponto %}" class="logo">
+                    <span class="close-button">&times;</span>
+                </a>
+            </div>
+        {% endif %}
 
         <div class="header">
-            <h2>Como foi seu roteiro de viagens?</h2>
-            <span class="close-button">&times;</span>
+            <h2> {{frase_pergunta}} </h2>
         </div>
         
         <!-- Avaliação Geral -->
@@ -143,7 +180,8 @@
         </div>
 
         <!-- Avaliação do Ponto Turístico -->
-        <div class="section-title">Ponto Turístico Visitado</div>
+        
+        <div class="section-title">Pontos Turísticos Visitados</div>
         <div class="rating-section">
             <div class="stars" data-rating="point">
                 <input type="radio" id="point-star1" name="point-rating" value="1"><label for="point-star1">&#9733;</label>
@@ -154,35 +192,45 @@
             </div>
         </div>
         
-        <!-- Avaliação do Guia Turístico -->
-        <div class="section-title">Guia Turístico</div>
-        <div class="rating-section">
-            <div class="stars" data-rating="guide">
-                <input type="radio" id="guide-star1" name="guide-rating" value="1"><label for="guide-star1">&#9733;</label>
-                <input type="radio" id="guide-star2" name="guide-rating" value="2"><label for="guide-star2">&#9733;</label>
-                <input type="radio" id="guide-star3" name="guide-rating" value="3"><label for="guide-star3">&#9733;</label>
-                <input type="radio" id="guide-star4" name="guide-rating" value="4"><label for="guide-star4">&#9733;</label>
-                <input type="radio" id="guide-star5" name="guide-rating" value="5"><label for="guide-star5">&#9733;</label>
+        {% if nome_do_escopo == "guia_turistico" %}
+            <!-- Avaliação do Guia Turístico -->
+            <div class="section-title">Guia Turístico</div>
+            <div class="rating-section">
+                <div class="stars" data-rating="guide">
+                    <input type="radio" id="guide-star1" name="guide-rating" value="1"><label for="guide-star1">&#9733;</label>
+                    <input type="radio" id="guide-star2" name="guide-rating" value="2"><label for="guide-star2">&#9733;</label>
+                    <input type="radio" id="guide-star3" name="guide-rating" value="3"><label for="guide-star3">&#9733;</label>
+                    <input type="radio" id="guide-star4" name="guide-rating" value="4"><label for="guide-star4">&#9733;</label>
+                    <input type="radio" id="guide-star5" name="guide-rating" value="5"><label for="guide-star5">&#9733;</label>
+                </div>
             </div>
-        </div>
+        {% endif %}
 
-        <!-- Avaliação da Rota -->
-        <div class="section-title">Rota</div>
-        <div class="rating-section">
-            <div class="stars" data-rating="route">
-                <input type="radio" id="route-star1" name="route-rating" value="1"><label for="route-star1">&#9733;</label>
-                <input type="radio" id="route-star2" name="route-rating" value="2"><label for="route-star2">&#9733;</label>
-                <input type="radio" id="route-star3" name="route-rating" value="3"><label for="route-star3">&#9733;</label>
-                <input type="radio" id="route-star4" name="route-rating" value="4"><label for="route-star4">&#9733;</label>
-                <input type="radio" id="route-star5" name="route-rating" value="5"><label for="route-star5">&#9733;</label>
+        {% if nome_do_escopo != "guia_turistico" %}
+            <!-- Avaliação da Rota -->
+            <div class="section-title">Rota</div>
+            <div class="rating-section">
+                <div class="stars" data-rating="route">
+                    <input type="radio" id="route-star1" name="route-rating" value="1"><label for="route-star1">&#9733;</label>
+                    <input type="radio" id="route-star2" name="route-rating" value="2"><label for="route-star2">&#9733;</label>
+                    <input type="radio" id="route-star3" name="route-rating" value="3"><label for="route-star3">&#9733;</label>
+                    <input type="radio" id="route-star4" name="route-rating" value="4"><label for="route-star4">&#9733;</label>
+                    <input type="radio" id="route-star5" name="route-rating" value="5"><label for="route-star5">&#9733;</label>
+                </div>
             </div>
-        </div>
+        {% endif %}
 
         <!-- Caixa de Comentário -->
         <textarea class="comment-box" rows="4" placeholder="Deixe um comentário..."></textarea>
 
         <!-- Botão de Envio -->
-        <button class="submit-button">Enviar</button>
+        {% if nome_do_escopo == "rotas" %}
+            <a href="{% url "rotas" %}"><button class="submit-button">Enviar</button></a>
+        {% elif nome_do_escopo == "pontos_turisticos" %}
+            <a href="{% url "pontos_turisticos" %}"><button class="submit-button">Enviar</button></a>
+        {% else %}
+            <a href="{% url "guia_turistico" %}"><button class="submit-button">Enviar</button></a>
+        {% endif %}
     </div>
 
     <script>

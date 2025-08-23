@@ -9,6 +9,10 @@
     text-align: justify;
 }
 
+p{
+    text-align: justify;
+}
+
 .saber-pt{
     background-color: #D1C9C9;
     border-radius: 10px;
@@ -65,4 +69,45 @@ h1{
 .carrossel{
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.campos{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+    text-align: left;
+    align-items: center;
+    margin-top: 30px;
+    border-top: 2px solid #4caf50; /* Linha acima */
+    border-bottom: 2px solid #4caf50; /* Linha abaixo */
+    border-radius: 8px; /* Bordas arredondadas para o conteúdo */
+}
+
+.campos a{
+    color: blue;
+    text-decoration: underline;
+}
+
+.campos h2{
+    text-align: center;
+    color: #2e7d32;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1024px){
+    .campos{
+        flex-direction: column;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        gap: 10px;
+        margin-right: 0px;
+    }
+
+    .campos h2{
+        text-align: center;
+    }
+
 }

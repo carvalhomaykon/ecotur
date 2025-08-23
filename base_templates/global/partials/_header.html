@@ -6,144 +6,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ nome_da_pagina }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static "global/css/style_carrossel.css" %}">
-    <link rel="stylesheet" href="{% static "global/css/style_header.css" %}">
-    <link rel="stylesheet" href="{% static '' %}{{ nome_do_escopo }}/css/style_{{ nome_do_app }}.css">
-    <link rel="stylesheet" href="{% static "global/css/style_cards.css" %}">
-    <link rel="shortcut icon" href="{% static "global/img/logo-ecotur.ico" %}" type="image/x-icon">
 
-    <!-- Importações Para o Mapa -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
-    
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="img_fundo_header">
-            <img src={% static "global/img/belem-inicio-c.png" %} alt="Imagem Da Amazônia">
-        </div>
-        <div class="menu">
+<body class="bg-gray-100">
+
+    <header class="w-full fixed top-0 left-0 z-50 bg-white/30 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+            
+            <!-- Logo -->
+            <a href="{% url 'home' %}" class="text-2xl font-bold text-green-700">
+                Eco<span class="text-yellow-400">Tur</span>
+            </a>
+
+            <!-- Menu -->
             <nav>
-                <ul class="menu-1">
-                    <li>
-                        <div class="title">
-                            <a href="{% url "home" %}">Eco<span class="tour">Tour</span></a>
-                        </div>
-                    </li>
-                    <ul class="menu-2">
-                        <li>
-                            <a href="{% url "home" %}">Sobre</a>
-                        </li>
-                        <li>
-                            <div class="menu-rotas">
-                                <button onclick="toggleDropdown()">Rotas 
-                                    <!-- Ícone de seta (SVG) -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                                <div class="dropdown-content">
-                                    <ul>
-                                        <li><a href="{% url "rotas" %}">Criar Rota</a></li>
-                                        <li><a href="{% url "minha_rota" %}">Minha Rota</a></li>
-                                        <li><a href="{% url "historico_rota" %}">Histórico de Rota</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
-                        </li>
-                        <li>
-                            <a href="{% url "guia_turistico" %}">Guia Turistico</a>
-                        </li>
-                        <li>
-                            <a href="{% url "recompensas" %}">Recompensas</a>
-                        </li>
-                        <li>
-                            <a href="{% url "avaliacao_geral" %}">Sugestões</a>
-                        </li>
-                    </ul>
-                    <li>
-                        {% if request.user.is_authenticated %}
-                            <ul class="usuario-logado">
-                                <li>
-                                    Seja Bem vindo, {{ request.user.username }} 
-                                </li>
-                                <li>
-                                    |
-                                </li>
-                                <li>
-                                    <div class="entrar">
-                                        <button><a href="{% url "logout" %}">Sair</a></button>
-                                    </div>
-                                </li>
-                            </ul>
-                            
-                        {% else %}
-                            <div class="entrar">
-                                <button><a href="{% url "login" %}">Entrar</a></button>
-                            </div>
-                        {% endif %}
-                        <!-- <a href="#"><img src="{% static "global/img/icone_user.png" %}" alt="Imagem do Ícone de Usuário"></a> -->
-                    </li>
-                    <li class="mobile-menu-icon">
-                        <button onclick="menuShow()">
-                            <img src="{% static "global/img/menu_white_36dp.svg" %}" alt="Logo do Ícone de Menu" class="icon">
-                        </button>
-                    </li>
+                <ul class="flex space-x-6 text-gray-800 font-medium">
+                    <li><a href="{% url 'home' %}" class="hover:text-green-700 transition">Sobre</a></li>
+                    <li><a href="{% url 'pontos_turisticos' %}" class="hover:text-green-700 transition">Pontos Turísticos</a></li>
+                    <li><a href="{% url 'guia_turistico' %}" class="hover:text-green-700 transition">Guia Turístico</a></li>
+                    <li><a href="{% url 'recompensas' %}" class="hover:text-green-700 transition">Recompensas</a></li>
                 </ul>
             </nav>
 
-            <div class="mobile-menu">
-                <ul class="menu-2">
-                    <li><a href="{% url "home" %}">Sobre</a></li>
-                    <li>
-                        <div class="menu-rotas">
-                            <button onclick="toggleDropdown()">Rotas 
-                                <!-- Ícone de seta (SVG) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                            <div class="dropdown-content">
-                                <ul>
-                                    <li><a href="{% url "rotas" %}">Criar Rota</a></li>
-                                    <li><a href="{% url "minha_rota" %}">Minha Rota</a></li>
-                                    <li><a href="{% url "historico_rota" %}">Histórico de Rota</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="{% url "pontos_turisticos" %}">Pontos Turisticos</a>
-                    </li>
-                    <li>
-                        <a href="{% url "guia_turistico" %}">Guia Turistico</a>
-                    </li>
-                    <li>
-                        <a href="{% url "recompensas" %}">Recompensas</a>
-                    </li>
-                    <li>
-                        <a href="{% url "avaliacao_geral" %}">Sugestões</a>
-                    </li>
-                </ul>
-                
+            <!-- Login / Logout -->
+            <div>
                 {% if request.user.is_authenticated %}
-                    <div class="entrar">
-                        <button><a href="{% url "logout" %}">Sair</a></button>
-                    </div>
+                    <span class="mr-4 text-gray-700">Olá, {{ request.user.username }}</span>
+                    <a href="{% url 'logout' %}" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-600 transition">Sair</a>
                 {% else %}
-                    <div class="entrar">
-                        <button><a href="{% url "login" %}">Entrar</a></button>
-                    </div>
+                    <a href="{% url 'login' %}" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-600 transition">Entrar</a>
                 {% endif %}
-                
             </div>
+
         </div>
     </header>
-    <!-- Link para o arquivo JavaScript -->
-    <script src="{% static 'global/js/script_nav.js' %}"></script>
+
+    <main class="pt-24">
+        <!-- Conteúdo da página -->
+    </main>
+
+</body>
+</html>

@@ -45,6 +45,9 @@ select{
 }
 .button-rota{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
 }
 
 button a{
@@ -65,6 +68,10 @@ button a{
     font-size: 17px;
 }
 
+#limpar{
+    background-color: tomato;
+}
+
 .button-rota button:hover {
     background-color: #388e3c;
 }
@@ -78,11 +85,23 @@ button a{
     .button-rota button{
         width: 100%;
     }
+
+    .button-rota{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 }
 
 @media (max-width: 1024) {    
     .button-rota button{
         width: 80%;
+    }
+
+    .button-rota{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 }
 
