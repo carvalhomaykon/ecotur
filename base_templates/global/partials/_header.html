@@ -13,6 +13,9 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Importando os ícones do Font Awesome -->
+    <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -35,11 +38,11 @@
                     <li><a href="{% url 'home' %}" class="hover:text-green-700 transition">Sobre</a></li>
                     <li><a href="{% url 'pontos_turisticos' %}" class="hover:text-green-700 transition">Pontos Turísticos</a></li>
                     <li><a href="{% url 'guia_turistico' %}" class="hover:text-green-700 transition">Guia Turístico</a></li>
-                    <li><a href="{% url 'recompensas' %}" class="hover:text-green-700 transition">Recompensas</a></li>
+                    <li><a href="#" class="hover:text-green-700 transition">Pacotes Turístico</a></li>
+                    <li><a href="#" class="hover:text-green-700 transition">Gerar Rota Personalizada</a></li>
                 </ul>
             </nav>
 
-            <!-- Login / Logout -->
             <div>
                 {% if request.user.is_authenticated %}
                     <span class="mr-4 text-gray-700">Olá, {{ request.user.username }}</span>
@@ -51,10 +54,3 @@
 
         </div>
     </header>
-
-    <main class="pt-24">
-        <!-- Conteúdo da página -->
-    </main>
-
-</body>
-</html>

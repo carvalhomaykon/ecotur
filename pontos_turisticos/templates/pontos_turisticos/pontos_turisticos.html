@@ -1,66 +1,88 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
 
-{% include "global/partials/_header.html" %}
-
-<section>
-    <h1>Pontos Turísticos</h1>
-    <div class="container">
-        <div class="buscar">
-            <div class="icon-container">
-                <img src="{% static 'pontos_turisticos/img/lupa.png' %}" alt="Ícone da Lupa">
-            </div>
-            <form action="#" method="GET">
-                <input type="text" class="search-input" placeholder="Pesquise seu ponto turístico" id="search" name="q">
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        
+        <!-- Título -->
+        <h1 class="text-4xl font-bold text-green-700 text-center mb-10">Pontos Turísticos</h1>
+        
+        <!-- Barra de busca -->
+        <div class="flex justify-center mb-12">
+            <form action="#" method="GET" class="relative w-full max-w-md">
+                <input type="text" 
+                    id="search" name="q"
+                    placeholder="Pesquise seu ponto turístico..." 
+                    class="w-full py-3 pl-12 pr-4 border border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
+                <img src="{% static 'pontos_turisticos/img/lupa.png' %}" alt="Buscar"
+                    class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 opacity-70">
             </form>
         </div>
-    </div>
-    
-    <div class="amostra-pontos-turisticos">
-        <h2>Pontos Mais Visitados</h2>
-        <div class="galeria-de-imagem">
-            {% for ponto in pontos %}
-                <a href="{% url "detalhes_ponto_turistico" id=ponto.id %}">
-                    <div class="image-container">
-                        <img src="{% static ponto.imagem %}" alt="Ponto Turistico {{ ponto.nome }}">
-                        <div class="address">{{ ponto.nome }}</div>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
-    </div>
-    
-    <div class="amostra-pontos-turisticos">
-        <h2>Pontos Turísticos Culturais</h2>
-        <div class="galeria-de-imagem">
-            {% for ponto in pontos %}
-                {% if ponto.tipo == "Cultural" %}
-                    <a href="{% url "detalhes_ponto_turistico" id=ponto.id %}">
-                        <div class="image-container">
-                            <img src="{% static ponto.imagem %}" alt="Ponto Turistico {{ ponto.nome }}">
-                            <div class="address">{{ ponto.nome }}</div>
+
+        <!-- Mais Visitados -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">✨ Pontos Mais Visitados</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {% for ponto in pontos %}
+                    <a href="{% url 'detalhes_ponto_turistico' id=ponto.id %}"
+                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                        <div class="h-48 w-full overflow-hidden">
+                            <img src="{% static ponto.imagem %}" 
+                                alt="Ponto Turístico {{ ponto.nome }}" 
+                                class="w-full h-full object-cover hover:scale-110 transition">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-bold text-green-700">{{ ponto.nome }}</h3>
                         </div>
                     </a>
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
-    <div class="amostra-pontos-turisticos">
-        <h2>Pontos Turísticos Naturais</h2>
-        <div class="galeria-de-imagem">
-            {% for ponto in pontos %}
-                {% if ponto.tipo == "Natural" %}
-                    <a href="{% url "detalhes_ponto_turistico" id=ponto.id %}">
-                        <div class="image-container">
-                            <img src="{% static ponto.imagem %}" alt="Ponto Turistico {{ ponto.nome }}">
-                            <div class="address">{{ ponto.nome }}</div>
-                        </div>
-                    </a>
-                {% endif %}
-            {% endfor %}
+        <!-- Pontos Culturais -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">🎭 Pontos Turísticos Culturais</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {% for ponto in pontos %}
+                    {% if ponto.tipo == "Cultural" %}
+                        <a href="{% url 'detalhes_ponto_turistico' id=ponto.id %}"
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                            <div class="h-48 w-full overflow-hidden">
+                                <img src="{% static ponto.imagem %}" 
+                                    alt="Ponto Turístico {{ ponto.nome }}" 
+                                    class="w-full h-full object-cover hover:scale-110 transition">
+                            </div>
+                            <div class="p-4 text-center">
+                                <h3 class="text-lg font-bold text-green-700">{{ ponto.nome }}</h3>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
-</section>
+        <!-- Pontos Naturais -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">🌿 Pontos Turísticos Naturais</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {% for ponto in pontos %}
+                    {% if ponto.tipo == "Natural" %}
+                        <a href="{% url 'detalhes_ponto_turistico' id=ponto.id %}"
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                            <div class="h-48 w-full overflow-hidden">
+                                <img src="{% static ponto.imagem %}" 
+                                    alt="Ponto Turístico {{ ponto.nome }}" 
+                                    class="w-full h-full object-cover hover:scale-110 transition">
+                            </div>
+                            <div class="p-4 text-center">
+                                <h3 class="text-lg font-bold text-green-700">{{ ponto.nome }}</h3>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
 
-{% include "global/partials/_footer.html" %}
+    </section>
+
+{% endblock %}
