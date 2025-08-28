@@ -56,7 +56,7 @@ def guia_turistico(request):
 
     return render(
         request,
-        'guia_turistico/contratar_guia.html', context
+        'guia_turistico/guias_turisticos.html', context
     )
 
 def detalhe_guia_turistico(request, id):

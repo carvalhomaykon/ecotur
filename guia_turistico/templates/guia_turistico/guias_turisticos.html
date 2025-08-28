@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <!-- Imagem -->
+            <div class="relative">
+                <img src="{% static ponto.imagem %}" alt="Imagem {{ ponto.nome }}" 
+                    class="w-full h-48 object-cover">
+                <span class="absolute top-2 left-2 bg-yellow-500 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                    {{ ponto.data_passeio|default:"Data a definir" }}
+                </span>
+            </div>
+
+            <!-- Conteúdo -->
+            <div class="p-4 flex flex-col space-y-3">
+                <!-- Nome do ponto -->
+                <h2 class="text-xl font-bold text-gray-800">{{ ponto.nome }}</h2>
+
+                <!-- Informações adicionais -->
+                <ul class="text-gray-600 text-sm space-y-1">
+                    <li><span class="font-semibold">Duração:</span> {{ ponto.duracao|default:"Não especificado" }}</li>
+                    <li><span class="font-semibold">Preço:</span> R$ {{ ponto.preco }}</li>
+                    <li><span class="font-semibold">Guia:</span> {{ ponto.nome_guia }}</li>
+                    <li><span class="font-semibold">Idioma(s):</span> {{ ponto.idiomas }}</li>
+                </ul>
+
+                <!-- Botão de contato -->
+                <div class="pt-2">
+                    <a href="{{ ponto.whatsapp }}" target="_blank"
+                    class="inline-flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-xl transition-colors">
+                        Entrar em Contato
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

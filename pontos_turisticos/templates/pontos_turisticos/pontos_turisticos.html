@@ -21,7 +21,7 @@
 
         <!-- Mais Visitados -->
         <div class="mb-16">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">✨ Pontos Mais Visitados</h2>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Pontos Mais Visitados</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {% for ponto in pontos %}
                     <a href="{% url 'detalhes_ponto_turistico' id=ponto.id %}"
@@ -41,7 +41,7 @@
 
         <!-- Pontos Culturais -->
         <div class="mb-16">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">🎭 Pontos Turísticos Culturais</h2>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Pontos Turísticos Culturais</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {% for ponto in pontos %}
                     {% if ponto.tipo == "Cultural" %}
@@ -63,7 +63,7 @@
 
         <!-- Pontos Naturais -->
         <div class="mb-16">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">🌿 Pontos Turísticos Naturais</h2>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Pontos Turísticos Naturais</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {% for ponto in pontos %}
                     {% if ponto.tipo == "Natural" %}
